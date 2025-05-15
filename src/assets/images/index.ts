@@ -5,6 +5,8 @@ import MAIL from "./mail.svg";
 import INSIGHTS from "./insights.svg";
 import HAMBURGER from "./hamburger.svg";
 import AI from "./ai.png";
+import AIBlue from "./ai-blue.svg";
+import UPLOAD from "./upload.svg";
 
 const IMAGES = {
   LOGO: LOGO.src,
@@ -14,6 +16,8 @@ const IMAGES = {
   GRAPH_DOWN_3E71C0: GRAPH_DOWN_3E71C0,
   HAMBURGER: HAMBURGER,
   AI: AI.src,
+  AIBlue: AIBlue,
+  UPLOAD: UPLOAD,
 };
 
 export default IMAGES;

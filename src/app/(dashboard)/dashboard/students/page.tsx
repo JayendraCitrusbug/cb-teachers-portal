@@ -70,33 +70,6 @@ const Students: React.FC = () => {
         </Button>
       </div>
 
-      {/* <Card className="w-full md:w-[538px] bg-[#00235a] border-zinc-200 shadow-shadow-sm">
-        <CardHeader className="pb-0">
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-white text-[22px] tracking-[-0.40px] leading-[22px]">
-              AI Assessment
-            </CardTitle>
-            <div className="w-10 h-10 bg-[#edf4ff33] rounded overflow-hidden flex items-center justify-center">
-              <Image
-                className="w-[23px] h-6"
-                alt="G"
-                src={IMAGES.AI}
-                height={23}
-                width={24}
-              />
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <p className="text-white text-base leading-[22px]">
-            Overall class mastery on 'Unit 4: Photosynthesis` is 78%.
-            <br />4 students show improvement since last week.
-            <br />
-            While 2 students require additional attention.
-          </p>
-        </CardContent>
-      </Card> */}
-
       <section className="flex flex-col items-start gap-6 w-full">
         <div className="flex flex-col items-start gap-5 w-full">
           <h2 className="font-semibold text-zinc-950 text-xl tracking-[-0.40px] leading-5">

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 import { Search, Filter, ChevronDown, Plus } from "lucide-react";
 
@@ -18,7 +19,8 @@ import {
   DropdownMenuTrigger,
   DropdownMenuGroup,
 } from "@/components/ui/dropdown-menu";
-import Image from "next/image";
+import AddLessonPopup from "./AddLessonPopup";
+
 import IMAGES from "@/assets/images";
 
 const LessonTable = () => {
@@ -99,16 +101,12 @@ const LessonTable = () => {
           <div className="flex items-center border border-[#E4E4E7] rounded-md w-[102px] h-10 overflow-hidden bg-white justify-center">
             <button className="flex items-center gap-2 px-2 text-gray-900 hover:text-[#2196F3] focus:outline-none cursor-pointer">
               {/* Filter icon from lucide-react */}
-              <Filter color="black" width={16} height={16}/>
+              <Filter color="black" width={16} height={16} />
               <span className="text-sm">Filters</span>
             </button>
           </div>
           <div className="flex items-center border border-[#E4E4E7] rounded-md w-[102px] h-10 overflow-hidden bg-white">
-            <button className="flex items-center gap-2 px-2 text-gray-900 hover:text-[#2196F3] focus:outline-none cursor-pointer">
-              {/* Filter icon from lucide-react */}
-              <Plus color="black" width={16} height={16}/>
-              <span className="text-sm">Lesson</span>
-            </button>
+            <AddLessonPopup />
           </div>
         </div>
       </div>
@@ -150,9 +148,8 @@ const LessonTable = () => {
                 <TableCell className="text-center px-2 py-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger
-                      className={`${
-                        statusMap[item.status].className
-                      } w-[100px] h-[36px] rounded-[6px] gap-10 border-2 cursor-pointer flex items-center justify-center m-auto focus:offset-0 outline-0`}
+                      className={`${statusMap[item.status].className
+                        } w-[100px] h-[36px] rounded-[6px] gap-10 border-2 cursor-pointer flex items-center justify-center m-auto focus:offset-0 outline-0`}
                     >
                       <div className="flex justify-center items-center gap-2 p-2">
                         <span>{statusMap[item.status].label}</span>
@@ -172,7 +169,7 @@ const LessonTable = () => {
                             {statusOption.label}
                           </DropdownMenuItem>
                         ))}
-                      </DropdownMenuGroup>  
+                      </DropdownMenuGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
