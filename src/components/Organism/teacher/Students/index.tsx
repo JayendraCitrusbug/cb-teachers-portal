@@ -1,4 +1,4 @@
 import StudentsTable from "./StudentsTable";
-import StudentDetails from "./StudentDetails";
+import StudentDetailsHeader from "./StudentDetailsHeader";
 
-export { StudentsTable, StudentDetails };
+export { StudentsTable, StudentDetailsHeader };

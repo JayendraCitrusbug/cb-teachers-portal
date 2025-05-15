@@ -53,7 +53,7 @@ export default function PerformanceCard({
                   <span className="font-bold">{tag}</span>
                   <span className="text-sm ml-1">{description}</span>
                 </div>
-              </div>  
+              </div>
             </div>
             <div className="font-medium text-zinc-500 text-md leading-5">
               Period {period}

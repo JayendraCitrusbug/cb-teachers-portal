@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
+import { Filter } from "lucide-react";
 
 import { Badge } from "../../../../components/ui/badge";
-import { Button } from "../../../../components/ui/button";
 import { Card } from "../../../../components/ui/card";
+import AIAssesment from "./AIAssesment";
 import {
   Pagination,
   PaginationContent,
@@ -22,7 +25,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const students = [
+export const students = [
   {
     name: "Alex Johnson",
     dnaStructure: { score: 45, color: "#FF3B30" },
@@ -91,6 +94,7 @@ const students = [
 ];
 
 const StudentsTable = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col items-end gap-5 w-full">
       <div className="flex flex-col items-start gap-5 w-full">
@@ -98,8 +102,19 @@ const StudentsTable = () => {
           <h2 className="font-semibold text-zinc-950 text-xl tracking-[-0.40px] leading-5">
             Student List
           </h2>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center border border-[#E4E4E7] rounded-md h-auto overflow-hidden bg-white justify-center">
+              <AIAssesment />
+            </div>
+            <div className="flex items-center border border-[#E4E4E7] rounded-md w-[102px] h-auto overflow-hidden bg-white justify-center">
+              <button className="flex items-center gap-2 px-2 text-gray-900 hover:text-[#2196F3] focus:outline-none cursor-pointer py-2">
+                {/* Filter icon from lucide-react */}
+                <Filter color="black" width={16} height={16} />
+                <span className="text-sm">Filters</span>
+              </button>
+            </div>
+          </div>
 
-          <Button variant="outline">AI Tutor Assessment</Button>
         </div>
 
         <div className="w-full">
@@ -149,7 +164,7 @@ const StudentsTable = () => {
                     key={index}
                     className="h-[65px] border-b border-zinc-200"
                   >
-                    <TableCell className="h-12 text-center">
+                    <TableCell className="h-12 text-center cursor-pointer" onClick={() => router.push(`/students/${student.name}`)}>
                       <span className="font-medium text-[#1d1d1d] text-sm">
                         {student.name}
                       </span>
