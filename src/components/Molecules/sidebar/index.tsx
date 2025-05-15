@@ -19,17 +19,21 @@ import {
 } from "@/components/ui/sidebar";
 
 import IMAGES from "@/assets/images";
+import { usePathname } from "next/navigation";
 
-const menuItems = [
-  { label: "Home", icon: <Home />, href: "/dashboard" },
-  { label: "Lessons", icon: <BookOpen />, href: "/dashboard/lessons" },
-  { label: "Students", icon: <Users />, href: "/dashboard/students" },
-  { label: "Family", icon: <User />, href: "/dashboard/family" },
-  { label: "Settings", icon: <Settings />, href: "/dashboard/settings" },
-];
+
 
 export default function Sidebar() {
+  const pathname = usePathname();
   const { setOpen, open } = useSidebar();
+
+  const menuItems = [
+    { label: "Home", icon: <Home />, href: "/dashboard", is_active: pathname.includes("/dashboard") && !pathname.includes("/dashboard/lessons") && !pathname.includes("/dashboard/students") && !pathname.includes("/dashboard/family") && !pathname.includes("/dashboard/settings") },
+    { label: "Lessons", icon: <BookOpen />, href: "/dashboard/lessons", is_active: pathname.includes("/dashboard/lessons") },
+    { label: "Students", icon: <Users />, href: "/dashboard/students", is_active: pathname.includes("/dashboard/students") },
+    { label: "Family", icon: <User />, href: "/dashboard/family", is_active: pathname.includes("/dashboard/family") },
+    { label: "Settings", icon: <Settings />, href: "/dashboard/settings", is_active: pathname.includes("/dashboard/settings") },
+  ];
 
   return (
     <SidebarComponent
@@ -56,7 +60,9 @@ export default function Sidebar() {
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center space-x-3 p-3 mx-3 rounded-lg text-gray-700 hover:bg-gray-100 transition active"
+              className={`flex items-center space-x-3 p-3 mx-3 rounded-lg text-gray-700 hover:bg-gray-100 transition ${
+              item.is_active ? "bg-gray-100 font-semibold text-primary" : ""
+              }`}
             >
               {item.icon}
               {open && <span className="text-base">{item.label}</span>}

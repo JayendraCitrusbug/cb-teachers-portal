@@ -3,10 +3,8 @@ import React from "react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import {
-    StudentsTable,
-} from "@/components/Organism/teacher/Students";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SubjectTable from "./SubjectTable";
 
 
 import IMAGES from "@/assets/images";
@@ -109,7 +107,7 @@ const StudentDetailsOverview = () => {
                 </div>
 
                 <div className="flex flex-col items-end gap-5 w-full">
-                    <StudentsTable />
+                    <SubjectTable />
                 </div>
             </section>
         </section>
