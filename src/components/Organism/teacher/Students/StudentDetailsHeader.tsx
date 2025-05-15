@@ -42,7 +42,7 @@ const StudentDetailsHeader: React.FC<StudentDetailsHeaderProps> = ({ setActiveTa
           </TabsList>
         </Tabs>
         <div className="flex flex-wrap items-center gap-3 justify-end w-full">
-          <Button onClick={() => router.push("/dashboard/students")} variant="outline" className="h-10 mt-auto cursor-pointer border border-[#00235A] bg-[#00235A] text-white">
+          <Button onClick={() => router.push("/students")} variant="outline" className="h-10 mt-auto cursor-pointer border border-[#00235A] bg-[#00235A] text-white">
             <MoveLeft />
             Back to Dashboard
           </Button>

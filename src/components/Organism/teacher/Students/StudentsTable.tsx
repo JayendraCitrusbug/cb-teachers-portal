@@ -164,7 +164,7 @@ const StudentsTable = () => {
                     key={index}
                     className="h-[65px] border-b border-zinc-200"
                   >
-                    <TableCell className="h-12 text-center cursor-pointer" onClick={() => router.push(`/dashboard/students/${student.name}`)}>
+                    <TableCell className="h-12 text-center cursor-pointer" onClick={() => router.push(`/students/${student.name}`)}>
                       <span className="font-medium text-[#1d1d1d] text-sm">
                         {student.name}
                       </span>

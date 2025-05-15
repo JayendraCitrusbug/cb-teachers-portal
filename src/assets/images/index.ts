@@ -7,6 +7,7 @@ import HAMBURGER from "./hamburger.svg";
 import AI from "./ai.png";
 import AIBlue from "./ai-blue.svg";
 import UPLOAD from "./upload.svg";
+import GRAPH_UP from "./graph-up.svg";
 
 const IMAGES = {
   LOGO: LOGO.src,
@@ -18,6 +19,7 @@ const IMAGES = {
   AI: AI.src,
   AIBlue: AIBlue,
   UPLOAD: UPLOAD,
+  GRAPH_UP: GRAPH_UP
 };
 
 export default IMAGES;

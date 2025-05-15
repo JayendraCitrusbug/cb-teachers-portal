@@ -3,15 +3,15 @@ import Image from "next/image";
 
 import { Plus } from "lucide-react";
 
-import { Button } from "../../../../components/ui/button";
-import { Card, CardContent, CardTitle } from "../../../../components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../../../components/ui/select";
+} from "@/components/ui/select";
 import { StudentsTable } from "@/components/Organism/teacher/Students";
 
 import IMAGES from "@/assets/images";

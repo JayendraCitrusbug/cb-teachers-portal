@@ -21,7 +21,7 @@ const StudentDetailsLearningInsights = () => {
                                     </CardTitle>
                                     <div className="bg-white w-10 h-10 rounded-[4px] overflow-hidden flex items-center justify-center">
                                         <Image
-                                            src={IMAGES.GRAPH_DOWNWARDS}
+                                            src={IMAGES.GRAPH_UP}
                                             alt="G"
                                             height={22}
                                             width={24}
@@ -45,7 +45,7 @@ const StudentDetailsLearningInsights = () => {
                         <Card className="w-full shadow-shadow-sm border border-[#FF3B30] rounded-lg h-full bg-[#FF34280F]">
                             <CardContent className="px-6 py-4 w-full h-full flex flex-col items-start gap-[12px] justify-between">
                                 <div className="flex items-center justify-between w-full gap-1">
-                                    <CardTitle className="text-[#34C759] text-[22px] tracking-[-0.40px] leading-[22px] font-medium">
+                                    <CardTitle className="text-[#FF3B30] text-[22px] tracking-[-0.40px] leading-[22px] font-medium">
                                         Weaknesses
                                     </CardTitle>
                                     <div className="bg-white w-10 h-10 rounded-[4px] overflow-hidden flex items-center justify-center">

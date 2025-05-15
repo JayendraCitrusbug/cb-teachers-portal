@@ -28,11 +28,11 @@ export default function Sidebar() {
   const { setOpen, open } = useSidebar();
 
   const menuItems = [
-    { label: "Home", icon: <Home />, href: "/dashboard", is_active: pathname.includes("/dashboard") && !pathname.includes("/dashboard/lessons") && !pathname.includes("/dashboard/students") && !pathname.includes("/dashboard/family") && !pathname.includes("/dashboard/settings") },
-    { label: "Lessons", icon: <BookOpen />, href: "/dashboard/lessons", is_active: pathname.includes("/dashboard/lessons") },
-    { label: "Students", icon: <Users />, href: "/dashboard/students", is_active: pathname.includes("/dashboard/students") },
-    { label: "Family", icon: <User />, href: "/dashboard/family", is_active: pathname.includes("/dashboard/family") },
-    { label: "Settings", icon: <Settings />, href: "/dashboard/settings", is_active: pathname.includes("/dashboard/settings") },
+    { label: "Home", icon: <Home />, href: "/", is_active: pathname.includes("/") && !pathname.includes("/lessons") && !pathname.includes("/students") && !pathname.includes("/family") && !pathname.includes("/settings") },
+    { label: "Lessons", icon: <BookOpen />, href: "/lessons", is_active: pathname.includes("/lessons") },
+    { label: "Students", icon: <Users />, href: "/students", is_active: pathname.includes("/students") },
+    { label: "Family", icon: <User />, href: "/family", is_active: pathname.includes("/family") },
+    { label: "Settings", icon: <Settings />, href: "/settings", is_active: pathname.includes("/settings") },
   ];
 
   return (

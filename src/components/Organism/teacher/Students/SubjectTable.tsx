@@ -27,7 +27,7 @@ import {
 
 export const subject = [
     {
-        name: "Alex Johnson",
+        name: "Period 1 Biology",
         lesson: "Cell Division",
         dnaStructure: { score: 45, color: "#FF3B30" },
         cellularRespiration: { score: 90, color: "#34C759" },
@@ -40,7 +40,7 @@ export const subject = [
         teacherAction: false,
     },
     {
-        name: "Sarah Khan",
+        name: "Period 2 Biology",
         lesson: "DNA Structure",
         dnaStructure: { score: 90, color: "#34C759" },
         cellularRespiration: { score: 45, color: "#FF3B30" },
@@ -53,7 +53,7 @@ export const subject = [
         teacherAction: true,
     },
     {
-        name: "David SK",
+        name: "Period 3 Math",
         lesson: "Fractions",
         dnaStructure: { score: 45, color: "#FF3B30" },
         cellularRespiration: { score: 65, color: "#F97316" },
@@ -66,7 +66,7 @@ export const subject = [
         teacherAction: true,
     },
     {
-        name: "Jhon Michal",
+        name: "Period 2 English",
         lesson: "Cell Division",
         dnaStructure: { score: 30, color: "#FF3B30" },
         cellularRespiration: { score: 45, color: "#FF3B30" },
@@ -79,7 +79,7 @@ export const subject = [
         teacherAction: false,
     },
     {
-        name: "Alex Johnson",
+        name: "Period 4 Science",
         lesson: "DNA Structure",
         dnaStructure: { score: 45, color: "#FF3B30" },
         cellularRespiration: { score: 90, color: "#34C759" },
@@ -152,7 +152,7 @@ const SubjectTable = () => {
                                         key={index}
                                         className="h-[65px] border-b border-zinc-200"
                                     >
-                                        <TableCell className="h-12 text-center cursor-pointer" onClick={() => router.push(`/dashboard/students/${student.name}`)}>
+                                        <TableCell className="h-12 text-center cursor-pointer">
                                             <span className="font-medium text-[#1d1d1d] text-sm">
                                                 {student.name}
                                             </span>
