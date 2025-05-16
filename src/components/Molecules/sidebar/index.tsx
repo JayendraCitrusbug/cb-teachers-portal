@@ -23,6 +23,7 @@ import {
 
 import IMAGES from "@/assets/images";
 
+import "./sidebar.css";
 
 
 export default function Sidebar() {
@@ -62,7 +63,7 @@ export default function Sidebar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex items-center space-x-3 p-3 mx-3 rounded-lg text-gray-700 hover:bg-gray-100 transition ${item.is_active ? "bg-gray-100 font-semibold text-primary" : ""
+              className={`sidebar-item-link flex items-center space-x-3 p-3 mx-3 rounded-lg text-gray-700 hover:bg-gray-100 transition ${item.is_active ? "active" : ""
                 }`}
             >
               {item.icon}

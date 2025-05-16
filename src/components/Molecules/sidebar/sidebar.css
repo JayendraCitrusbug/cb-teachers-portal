@@ -1,0 +1,4 @@
+.sidebar-item-link::before {
+    background-color: "#00235A" !important;
+    width: 4px !important;
+}

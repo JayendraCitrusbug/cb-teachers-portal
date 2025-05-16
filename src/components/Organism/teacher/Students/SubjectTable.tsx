@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Filter } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import { Badge } from "../../../../components/ui/badge";
 import { Card } from "../../../../components/ui/card";
@@ -93,6 +94,7 @@ export const subject = [
 ];
 
 const SubjectTable = () => {
+    const router = useRouter();
     return (
         <div className="flex flex-col items-end gap-5 w-full">
             <div className="flex flex-col items-start gap-5 w-full">
@@ -145,31 +147,31 @@ const SubjectTable = () => {
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {subject.map((student, index) => (
+                                {subject.map((currentSubject, index) => (
                                     <TableRow
                                         key={index}
                                         className="h-[65px] border-b border-zinc-200"
                                     >
-                                        <TableCell className="h-12 text-center cursor-pointer">
+                                        <TableCell className="h-12 text-center cursor-pointer" onClick={() => router.push(`/students/StudentID/${currentSubject.name}`)}>
                                             <span className="font-medium text-[#1d1d1d] text-sm">
-                                                {student.name}
+                                                {currentSubject.name}
                                             </span>
                                         </TableCell>
                                         <TableCell className="h-12 text-center">
                                             <div
                                                 className="inline-flex w-[240px] h-8 items-center justify-center rounded text-[#1d1d1d]"
                                             >
-                                                {student.lesson}
+                                                {currentSubject.lesson}
                                             </div>
                                         </TableCell>
                                         <TableCell className="h-12 text-center">
                                             <div
                                                 className="inline-flex w-8 h-8 items-center justify-center rounded text-[#1d1d1d]"
                                                 style={{
-                                                    backgroundColor: student.aiAssesment.color
+                                                    backgroundColor: currentSubject.aiAssesment.color
                                                 }}
                                             >
-                                                {student.aiAssesment.score}
+                                                {currentSubject.aiAssesment.score}
                                             </div>
                                         </TableCell>
                                         <TableCell className="h-12 text-center">
@@ -180,17 +182,17 @@ const SubjectTable = () => {
                                                     className="px-3.5 py-2 font-medium"
                                                     variant="outline"
                                                     style={{
-                                                        backgroundColor: student.memoryRecall.borderColor,
+                                                        backgroundColor: currentSubject.memoryRecall.borderColor,
                                                         color: "#FFFFFF",
                                                         opacity: "40%",
                                                     }}
                                                 >
-                                                    {student.memoryRecall.text}
+                                                    {currentSubject.memoryRecall.text}
                                                 </Badge>
                                             </span>
                                         </TableCell>
                                         <TableCell className="h-12 text-center">
-                                            {student.teacherAction &&
+                                            {currentSubject.teacherAction &&
                                                 <Badge
                                                     className="px-3.5 py-2 font-medium"
                                                     variant="outline"
