@@ -8,7 +8,7 @@ type ActionCardProps = {
     icon?: ReactNode
     iconBgColor: string
     heading: string
-    subHeading: string
+    subHeading: React.ReactNode
     buttonLabel: string
     buttonColor: string
 }
@@ -37,14 +37,14 @@ const ActionCard = ({
                     </div>
                 </div>
 
-                <div className="flex items-end justify-between flex-wrap md-gap-6 gap-3">
+                <div className="flex items-center justify-between gap-3 md:gap-6">
                     <div className="flex flex-col items-start gap-3">
                         <div className="flex items-center gap-6">
                             <div className="h-auto">
                                 <div className="text-zinc-900 leading-[30.7px]">
                                     <span className="font-bold text-[27.7px]">{heading} </span>
                                     <span className="text-sm font-normal">
-                                        {heading !== "Life Cycles" && "Students"}
+                                        {heading && heading !== "Life Cycles" && "Students"}
                                     </span>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ const ActionCard = ({
                     </div>
 
                     <Button
-                        className="cursor-pointer text-white w-[80px] h-[30px] rounded-[4px]"
+                        className="cursor-pointer text-white w-[80px] h-[30px] rounded-[4px] mt-4"
                         style={{ backgroundColor: buttonColor }}
                     >
                         {buttonLabel}
