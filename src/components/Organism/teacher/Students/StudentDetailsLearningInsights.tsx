@@ -1,10 +1,36 @@
 import React from "react";
 import Image from "next/image";
 
+import { Pie } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    ArcElement,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+
+
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import AIAssesment from "./AIAssesment";
 
 import IMAGES from "@/assets/images";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const options: any = {
+    plugins: {
+        legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+                boxWidth: 20,
+                padding: 15,
+            },
+        },
+    },
+    maintainAspectRatio: false,
+};
+
 
 const StudentDetailsLearningInsights = () => {
     return (
@@ -84,6 +110,20 @@ const StudentDetailsLearningInsights = () => {
                                 </CardTitle>
                                 {/* select component add */}
                             </div>
+                            <div style={{ height: '100%', width: '100%' }} className="flex items-center justify-center">
+                                <Pie options={options} data={
+                                    {
+                                        labels: ['Frustrated', 'Confident', 'Engaged'],
+                                        datasets: [
+                                            {
+                                                data: [20, 48, 32],
+                                                backgroundColor: ['#FF3B30', '#34C759', '#FF9500'],
+                                            },
+                                        ],
+                                    }
+                                } />
+                            </div>
+
                         </CardContent>
                     </Card>
 
@@ -96,22 +136,35 @@ const StudentDetailsLearningInsights = () => {
                                 <p className="text-sm text-[#71717A] font-regular">Based on interactions with assigned materials</p>
                             </div>
                             <div className="flex items-start w-full gap-6 flex-col">
-                                <div className="flex flex-col items-start gap-[2px] w-full">
-                                    <span className="text-[#FF3B30] text-[14px] font-medium">Misconception</span>
-                                    <p className="text-[14px] font-regular text-[#18181B]">Confuses reactants and products in photosynthesis equation.</p>
-                                </div>
-                                <div className="flex flex-col items-start gap-[2px] w-full">
-                                    <span className="text-[#18181B] text-[14px] font-medium">Pattern</span>
-                                    <p className="text-[14px] font-regular text-[#18181B]">Consistently forgets to carry the one in addition.</p>
-                                </div>
-                                <div className="flex flex-col items-start gap-[2px] w-full">
-                                    <span className="text-[#FF3B30] text-[14px] font-medium">Misconception</span>
-                                    <p className="text-[14px] font-regular text-[#18181B]">Confuses reactants and products in photosynthesis equation.</p>
-                                </div>
-                                <div className="flex flex-col items-start gap-[2px] w-full">
-                                    <span className="text-[#18181B] text-[14px] font-medium">Pattern</span>
-                                    <p className="text-[14px] font-regular text-[#18181B]">Consistently forgets to carry the one in addition.</p>
-                                </div>
+                                {[
+                                    {
+                                        type: "Misconception",
+                                        color: "#FF3B30",
+                                        text: "Confuses reactants and products in photosynthesis equation.",
+                                    },
+                                    {
+                                        type: "Pattern",
+                                        color: "#18181B",
+                                        text: "Consistently forgets to carry the one in addition.",
+                                    },
+                                    {
+                                        type: "Misconception",
+                                        color: "#FF3B30",
+                                        text: "Confuses reactants and products in photosynthesis equation.",
+                                    },
+                                    {
+                                        type: "Pattern",
+                                        color: "#18181B",
+                                        text: "Consistently forgets to carry the one in addition.",
+                                    },
+                                ].map((item, idx) => (
+                                    <div className="flex flex-col items-start gap-[2px] w-full" key={idx}>
+                                        <span className="text-[14px] font-medium" style={{ color: item.color }}>
+                                            {item.type}
+                                        </span>
+                                        <p className="text-[14px] font-regular text-[#18181B]">{item.text}</p>
+                                    </div>
+                                ))}
                             </div>
                         </CardContent>
                     </Card>
