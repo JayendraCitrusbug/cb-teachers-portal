@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
 import { Filter } from "lucide-react";
 
 import { Badge } from "../../../../components/ui/badge";
@@ -94,15 +93,14 @@ export const subject = [
 ];
 
 const SubjectTable = () => {
-    const router = useRouter();
     return (
         <div className="flex flex-col items-end gap-5 w-full">
             <div className="flex flex-col items-start gap-5 w-full">
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-between w-full flex-wrap gap-2">
                     <h2 className="font-semibold text-zinc-950 text-xl tracking-[-0.40px] leading-5">
-                        Student List
+                        Subject List
                     </h2>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 flex-wrap">
                         <div className="flex items-center border border-[#E4E4E7] rounded-md h-auto overflow-hidden bg-white justify-center">
                             <AIAssesment />
                         </div>
@@ -193,17 +191,17 @@ const SubjectTable = () => {
                                         </TableCell>
                                         <TableCell className="h-12 text-center">
                                             {student.teacherAction &&
-                                            <Badge
-                                                className="px-3.5 py-2 font-medium"
-                                                variant="outline"
-                                                style={{
-                                                    backgroundColor: "#00B2D61A",
-                                                    color: "#00B2D6",
-                                                    borderColor: "#00B2D6",
-                                                }}
-                                            >
-                                                Workshop
-                                            </Badge>}
+                                                <Badge
+                                                    className="px-3.5 py-2 font-medium"
+                                                    variant="outline"
+                                                    style={{
+                                                        backgroundColor: "#00B2D61A",
+                                                        color: "#00B2D6",
+                                                        borderColor: "#00B2D6",
+                                                    }}
+                                                >
+                                                    Workshop
+                                                </Badge>}
                                         </TableCell>
                                     </TableRow>
                                 ))}

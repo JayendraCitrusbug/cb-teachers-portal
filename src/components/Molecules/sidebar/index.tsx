@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ChevronDown } from "lucide-react"
 
 import {
   Home,
@@ -11,6 +13,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import {
   Sidebar as SidebarComponent,
   SidebarContent,
@@ -19,7 +22,6 @@ import {
 } from "@/components/ui/sidebar";
 
 import IMAGES from "@/assets/images";
-import { usePathname } from "next/navigation";
 
 
 
@@ -60,9 +62,8 @@ export default function Sidebar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex items-center space-x-3 p-3 mx-3 rounded-lg text-gray-700 hover:bg-gray-100 transition ${
-              item.is_active ? "bg-gray-100 font-semibold text-primary" : ""
-              }`}
+              className={`flex items-center space-x-3 p-3 mx-3 rounded-lg text-gray-700 hover:bg-gray-100 transition ${item.is_active ? "bg-gray-100 font-semibold text-primary" : ""
+                }`}
             >
               {item.icon}
               {open && <span className="text-base">{item.label}</span>}
@@ -72,13 +73,22 @@ export default function Sidebar() {
       </SidebarContent>
 
       {/* User Profile */}
-      <SidebarFooter className="p-4 border-t border-gray-200 flex items-center space-x-3">
+      <SidebarFooter className="p-4 border-t border-gray-200 flex items-center flex-row space-x-3">
         <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-white font-bold">
           M
         </div>
-        <div className="flex-1">
-          <p className="text-sm font-semibold">Michal</p>
-          <p className="text-xs text-gray-500 truncate">jhonmichal@gmail...</p>
+        <div className="flex flex-row items-center">
+          <div>
+            <p className="text-sm font-semibold font-[family-name:var(--font-poppins)]">Michal</p>
+            <Tooltip>
+              <TooltipTrigger >
+                <p className="text-xs text-gray-500 truncate font-[family-name:var(--font-poppins)]">jhonmichal@gmail...</p>
+              </TooltipTrigger>
+              <TooltipContent align="center" style={{ width: "max-content", backgroundColor: "#00235A", color: "white" }}>
+                <p className="text-xs text-white-500 truncate font-[family-name:var(--font-poppins)]">jhonmichal@gmail.com</p>
+              </TooltipContent>
+            </Tooltip>
+          </div><div><ChevronDown color="#363D4A" /></div>
         </div>
       </SidebarFooter>
     </SidebarComponent>
