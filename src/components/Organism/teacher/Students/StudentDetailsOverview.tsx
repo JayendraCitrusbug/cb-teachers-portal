@@ -55,7 +55,7 @@ const StudentDetailsOverview = () => {
                                     </CardTitle>
                                     <div className="bg-[#34C7591A] w-10 h-10 rounded-[4px] overflow-hidden flex items-center justify-center">
                                         <Image
-                                            src={IMAGES.GRAPH_DOWNWARDS}
+                                            src={IMAGES.GRAPH_UP}
                                             alt="G"
                                             height={22}
                                             width={24}
@@ -83,7 +83,7 @@ const StudentDetailsOverview = () => {
                                     </CardTitle>
                                     <div className="bg-[#00B2D61A] w-10 h-10 rounded-[4px] overflow-hidden flex items-center justify-center">
                                         <Image
-                                            src={IMAGES.GRAPH_DOWNWARDS}
+                                            src={IMAGES.MAIL}
                                             alt="G"
                                             height={22}
                                             width={24}
