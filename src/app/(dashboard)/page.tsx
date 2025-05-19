@@ -37,12 +37,7 @@ const page = () => {
           <ActionCard
             title="Email Parents"
             icon={
-              <Image
-                src={IMAGES.MAIL}
-                alt="Email"
-                height={23}
-                width={24}
-              />
+              <Image src={IMAGES.MAIL} alt="Email" height={23} width={24} />
             }
             iconBgColor="#FF95001A"
             heading="2"
