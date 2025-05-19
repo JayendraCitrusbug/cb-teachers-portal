@@ -15,6 +15,7 @@ import {
 import { StudentsTable } from "@/components/Organism/teacher/Students";
 
 import IMAGES from "@/assets/images";
+import ActionCard from "@/components/Molecules/actionCard";
 
 const Students: React.FC = () => {
   return (
@@ -47,7 +48,7 @@ const Students: React.FC = () => {
           </Select>
         </div>
 
-        <div className="flex-col items-start gap-3 flex-1 grow flex">
+        <div className="flex flex-col w-full md:w-[538px] items-start gap-3">
           <label className="font-semibold text-zinc-900 text-xl leading-5">
             Students
           </label>
@@ -77,74 +78,37 @@ const Students: React.FC = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
-            <Card className="w-full shadow-shadow-sm h-full border-[#ccc]">
-              <CardContent className="p-6 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-6 h-full">
-                  <CardTitle className="text-zinc-950 text-[20px] tracking-[-0.40px] leading-[22px]">
-                    Performance
-                  </CardTitle>
-                  <div className="bg-[#ff3b301a] w-10 h-10 rounded overflow-hidden flex items-center justify-center">
-                    <Image
-                      src={IMAGES.GRAPH_DOWNWARDS}
-                      alt="G"
-                      height={23}
-                      width={24}
-                    />
-                  </div>
+            <ActionCard
+              title="Performance"
+              icon={
+                <Image
+                  src={IMAGES.GRAPH_DOWNWARDS}
+                  alt="G"
+                  height={23}
+                  width={24}
+                />
+              }
+              iconBgColor="#ff3b301a"
+              heading="3"
+              subHeading="Period 1 Biology"
+              buttonLabel="Fix"
+              buttonColor="#ff3b30"
+            />
+
+            <ActionCard
+              title="Add New Lesson"
+              icon={
+                <div className="w-[22px] h-[22px]">
+                  <Plus color="#34C759" />
                 </div>
+              }
+              iconBgColor="#34c7591a"
+              heading="Life Cycles"
+              subHeading=""
+              buttonLabel="Add"
+              buttonColor="#34c759"
+            />
 
-                <div className="flex items-end justify-between">
-                  <div className="flex flex-col items-start gap-3">
-                    <div className="flex items-center gap-6">
-                      <div className="w-[87px] h-auto">
-                        <div className="font-normal text-zinc-900 text-[27.7px] leading-[30.7px]">
-                          <span className="font-bold">3 </span>
-                          <span className="text-sm">Students</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="font-medium text-zinc-500 text-md leading-5">
-                      Period 1 Biology
-                    </div>
-                  </div>
-
-                  <Button className="bg-[#ff3b30] hover:bg-[#ff3b30]/90 cursor-pointer text-white w-[80px] h-[30px] rounded-[4px]">
-                    Fix
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="w-full shadow-shadow-sm h-full border-[#ccc]">
-              <CardContent className="p-6 flex flex-col justify-between h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <CardTitle className="text-zinc-950 text-[20px] tracking-[-0.40px] leading-[22px]">
-                    Add New Lesson
-                  </CardTitle>
-                  <div className="bg-[#34c7591a] w-10 h-10 rounded overflow-hidden flex items-center justify-center">
-                    <div className="w-[22px] h-[22px]">
-                      <Plus color="#34C759" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-end justify-between">
-                  <div className="flex flex-col items-start gap-3">
-                    <div className="flex items-center gap-6">
-                      <div className="w-[151px] h-auto">
-                        <div className="font-bold text-zinc-900 text-[24.7px] leading-[30.7px]">
-                          Life Cycles
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Button className="bg-[#34c759] hover:bg-[#34c759]/90 cursor-pointer text-white w-[80px] h-[30px] rounded-[4px]">
-                    Add
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
 

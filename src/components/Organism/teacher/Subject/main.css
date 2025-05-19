@@ -1,0 +1,9 @@
+@media screen and (max-width: 768px) {
+  .subject-detail-wrapper {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .topics-wrapper {
+    flex-direction: column;
+  }
+}

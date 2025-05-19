@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,9 @@ import {
   PerformanceCard,
   SuggestionButton,
 } from "@/components/Organism/teacher/Dashboard";
+import ActionCard from "@/components/Molecules/actionCard";
+
+import IMAGES from "@/assets/images";
 
 const page = () => {
   return (
@@ -14,35 +18,48 @@ const page = () => {
       <div className="flex flex-col gap-y-5">
         <h1 className="font-semibold">Action Center</h1>
         <div className="flex flex-col md:flex-row items-center gap-6 w-full">
-          <PerformanceCard
+          <ActionCard
             title="Performance"
-            tag={10}
-            period="1 Biology"
-            color={"#FF3B30"}
-            bgColor={"#FF3B301A"}
-            icon={"GRAPH_DOWNWARDS"}
-            description="Students"
-            buttonText="Fix"
+            icon={
+              <Image
+                src={IMAGES.GRAPH_DOWNWARDS}
+                alt="Performance"
+                height={23}
+                width={24}
+              />
+            }
+            iconBgColor="#ff3b301a"
+            heading="3"
+            subHeading="Period 1 Biology"
+            buttonLabel="Fix"
+            buttonColor="#ff3b30"
           />
-          <PerformanceCard
+          <ActionCard
             title="Email Parents"
-            tag={2}
-            period="3 Chemistry"
-            color={"#FF9500"}
-            bgColor={"#FF95001A"}
-            description="Students needs help"
-            icon={"MAIL"}
-            buttonText="Create"
+            icon={
+              <Image src={IMAGES.MAIL} alt="Email" height={23} width={24} />
+            }
+            iconBgColor="#FF95001A"
+            heading="2"
+            subHeading="Period 3 Chemistry"
+            buttonLabel="Create"
+            buttonColor="#FF9500"
           />
-          <PerformanceCard
+          <ActionCard
             title="Students Insight"
-            tag={"Jamie"}
-            period="2 Math's"
-            color={"#34C759"}
-            bgColor={"#34C7591A"}
-            description={"has Improved"}
-            icon={"INSIGHTS"}
-            buttonText="View"
+            icon={
+              <Image
+                src={IMAGES.INSIGHTS}
+                alt="Insights"
+                height={23}
+                width={24}
+              />
+            }
+            iconBgColor="#34C7591A"
+            heading="Jamie"
+            subHeading="Period 2 Math's"
+            buttonLabel="View"
+            buttonColor="#34C759"
           />
         </div>
 

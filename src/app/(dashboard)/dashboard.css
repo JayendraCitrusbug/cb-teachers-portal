@@ -30,4 +30,8 @@
   .collapse-icon {
     display: none;
   }
+
+  .root-container {
+    flex-direction: column;
+  }
 }

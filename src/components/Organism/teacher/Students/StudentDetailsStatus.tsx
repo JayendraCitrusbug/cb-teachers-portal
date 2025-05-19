@@ -1,22 +1,7 @@
 import React from "react";
 
-import { Plus } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import {
-    StudentDetailsHeader,
-    StudentsTable,
-} from "@/components/Organism/teacher/Students";
-import IMAGES from "@/assets/images";
-import Image from "next/image";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
 const StudentDetailsStatus = () => {
     return (
