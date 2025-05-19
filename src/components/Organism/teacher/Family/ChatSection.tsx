@@ -2,15 +2,15 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { Send, Paperclip, ImageIcon, SquarePen } from "lucide-react";
+import { MessageCircle, Paperclip, Send, Smile, SquarePen } from "lucide-react";
 
 import SearchInput from "@/components/Atoms/SearchInput";
 
 import { chatListData } from ".";
 
-import { cn } from "@/lib/utils";
-import IMAGES from "@/assets/images";
 import { Button } from "@/components/ui/button";
+
+import "./style.css";
 
 interface ChatListItemProps {
   avatarUrl: string;
@@ -72,7 +72,7 @@ const ChatListItem: React.FC<ChatListItemProps> = ({
 
 function Sidebar() {
   return (
-    <div className="w-[350px] border border-[#E4E4E7] rounded-lg bg-white hidden md:flex flex-col p-3 gap-6">
+    <div className="chat-sidebar border border-[#E4E4E7] rounded-lg bg-white hidden md:flex flex-col p-3 gap-6">
       <SearchInput />
 
       <div className="flex justify-between items-center h-[32px]">
@@ -91,79 +91,92 @@ function Sidebar() {
   );
 }
 
-function ChatWindow() {
-  const [messages, setMessages] = useState([
-    { sender: "them", text: "Hi, how can I help you today?", time: "10:00AM" },
-    {
-      sender: "me",
-      text: "Hey, I'm having trouble with my account.",
-      time: "10:00AM",
-    },
-    { sender: "them", text: "What seems to be the problem?", time: "10:00AM" },
-    { sender: "me", text: "Hey, I'm having trouble.", time: "10:00AM" },
-    {
-      sender: "me",
-      text: "Hey, I'm having trouble with my account.",
-      time: "10:00AM",
-    },
-    { sender: "them", text: "What seems to be the problem?", time: "10:00AM" },
-  ]);
-
+function MessageInput() {
   return (
-    <div className="flex-1 flex flex-col bg-gray-50 border border-[#E4E4E7] rounded-lg">
-      <div className="flex items-center justify-between p-4 bg-white">
-        <div className="flex items-center space-x-3">
-          <div className="h-10 w-10 rounded-full bg-gray-200" />
-          <div>
-            <p className="text-sm font-medium">Taylor Wilson's Guardian</p>
-            <p className="text-xs text-green-600">Online</p>
+    <div className="w-full flex items-center gap-2 p-4 bg-white rounded-b-lg absolute bottom-0">
+      {/* Input */}
+      <input
+        type="text"
+        placeholder="Type your message"
+        className="flex-1 px-4 py-2 border border-[#E4E4E7] rounded-md focus:outline-none focus:ring-1 focus:ring-[#00235A] text-sm"
+      />
+
+      {/* Emoji Button */}
+      <button className="p-2 rounded-md bg-gray-500 hover:bg-gray-600">
+        <Smile size={18} className="text-white" />
+      </button>
+
+      {/* Attachment Button */}
+      <button className="p-2 rounded-md bg-gray-500 hover:bg-gray-600">
+        <Paperclip size={18} className="text-white" />
+      </button>
+
+      {/* Send Button */}
+      <button className="p-2 rounded-md bg-blue-900 hover:bg-blue-950">
+        <Send size={18} className="text-white" />
+      </button>
+    </div>
+  );
+}
+
+function ChatWindow() {
+  return (
+    <div className="border border-[#E4E4E7] rounded-lg w-full max-w-full h-screen relative">
+      <div className="bg-white p-4">
+        {/* Header */}
+        <div className="flex items-center justify-between pb-4">
+          <div className="flex items-center gap-3">
+            <Image
+              src={chatListData[0].avatarUrl}
+              alt="Avatar"
+              width={48}
+              height={48}
+              className="w-10 h-10 rounded-full object-cover"
+            />
+            <div>
+              <div className="flex flex-wr items-center gap-2">
+                <span className="font-semibold">Taylor Wilson’s Guardian</span>
+                <div className="text-sm text-gray-600">
+                  Guardian of Taylor Wilson
+                </div>
+              </div>
+              <span className="text-green-600 text-sm">Online</span>
+            </div>
+          </div>
+
+          <button className="flex items-center gap-1 border px-3 py-1 rounded-md text-sm hover:bg-gray-100">
+            <MessageCircle size={16} />
+            Translate
+          </button>
+        </div>
+
+        {/* Chat */}
+        <div className="mt-4 space-y-4">
+          {/* Incoming Message */}
+          <div className="flex items-start gap-2">
+            <div className="bg-gray-100 px-4 py-2 rounded-xl text-sm max-w-[70%]">
+              Hi, how can I help you today?
+              <div className="text-xs text-gray-500 mt-1">10:00AM</div>
+            </div>
+          </div>
+
+          {/* Outgoing Message */}
+          <div className="flex justify-end">
+            <div className="bg-[#00235A] text-white px-4 py-2 rounded-md text-sm max-w-[70%]">
+              Hey, I'm having trouble with my account.
+              <div className="text-xs text-gray-200 mt-1">10:00AM</div>
+            </div>
           </div>
         </div>
-        <button className="px-3 py-1 text-sm rounded border bg-white hover:bg-gray-100">
-          Translate
-        </button>
       </div>
-
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={cn(
-              "max-w-[80%] p-3 rounded-lg text-sm",
-              msg.sender === "me"
-                ? "bg-blue-900 text-white self-end"
-                : "bg-gray-100 text-black self-start"
-            )}
-          >
-            <p>{msg.text}</p>
-            <p className="text-xs mt-1 text-right opacity-70">{msg.time}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="p-4 border-t bg-white flex items-center gap-2">
-        <input
-          type="text"
-          placeholder="Type your message"
-          className="flex-1 rounded-full border px-4 py-2 text-sm"
-        />
-        <button className="text-muted-foreground hover:text-black">
-          <ImageIcon size={20} />
-        </button>
-        <button className="text-muted-foreground hover:text-black">
-          <Paperclip size={20} />
-        </button>
-        <button className="bg-blue-900 hover:bg-blue-800 p-2 rounded-full text-white">
-          <Send size={18} />
-        </button>
-      </div>
+      <MessageInput />
     </div>
   );
 }
 
 export default function ChatUI() {
   return (
-    <div className="flex gap-6 w-full overflow-hidden">
+    <div className="flex gap-6 w-full overflow-auto h-screen chat-content-wrapper">
       <Sidebar />
       <ChatWindow />
     </div>

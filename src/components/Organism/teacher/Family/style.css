@@ -1,0 +1,12 @@
+.chat-sidebar{
+    width: 350px;
+}
+@media (max-width: 1000px) {
+    .chat-content-wrapper {
+        flex-direction: column;
+    }
+
+    .chat-sidebar{
+        width: 100%;
+    }
+}
