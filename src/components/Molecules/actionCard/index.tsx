@@ -11,6 +11,7 @@ type ActionCardProps = {
     subHeading: React.ReactNode
     buttonLabel: string
     buttonColor: string
+    buttonClickHandler?: () => void
 }
 
 const ActionCard = ({
@@ -21,6 +22,7 @@ const ActionCard = ({
     subHeading,
     buttonLabel,
     buttonColor,
+    buttonClickHandler
 }: ActionCardProps) => {
     return (
         <Card className="w-full shadow-shadow-sm h-full border-[#ccc]">
@@ -57,6 +59,7 @@ const ActionCard = ({
                     <Button
                         className="cursor-pointer text-white w-[80px] h-[30px] rounded-[4px] mt-4"
                         style={{ backgroundColor: buttonColor }}
+                        onClick={buttonClickHandler}
                     >
                         {buttonLabel}
                     </Button>

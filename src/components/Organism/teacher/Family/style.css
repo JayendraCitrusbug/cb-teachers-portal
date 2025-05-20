@@ -1,12 +1,27 @@
-.chat-sidebar{
-    width: 350px;
+.chat-sidebar {
+    width: 390px;
+    min-width: 390px;
 }
-@media (max-width: 1000px) {
-    .chat-content-wrapper {
-        flex-direction: column;
-    }
+.chat-window {
+  max-height: calc(100vh - 150px);
+}
+.compose-message:focus-visible {
+  border: none !important;
+  outline: none !important;
+}
 
-    .chat-sidebar{
-        width: 100%;
-    }
+@media (max-width: 1000px) {
+  .chat-content-wrapper {
+    flex-direction: column;
+  }
+
+  .chat-sidebar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-self: center;
+  }
 }

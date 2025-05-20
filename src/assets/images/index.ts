@@ -5,6 +5,7 @@ import MAIL from "./mail.svg";
 import INSIGHTS from "./insights.svg";
 import HAMBURGER from "./hamburger.svg";
 import AI from "./ai.png";
+import AI_ICON from "./aiIcon.svg";
 import AIBlue from "./ai-blue.svg";
 import UPLOAD from "./upload.svg";
 import GRAPH_UP from "./graph-up.svg";
@@ -14,6 +15,7 @@ import IMG_b29070b99d7018c0f3078785768559562da1fb60 from "./chats/b29070b99d7018
 import IMG_bf941686612cb1bff64947899a6633b30b94c4a0 from "./chats/bf941686612cb1bff64947899a6633b30b94c4a0.png";
 import IMG_c8872a47fe668b88f60379394d3944e44986776d from "./chats/c8872a47fe668b88f60379394d3944e44986776d.png";
 import IMG_d6291aea9fc8c4e8e130ece56ee670c2bb1b098e from "./chats/d6291aea9fc8c4e8e130ece56ee670c2bb1b098e.png";
+import ANNOUNCEMENT from "./announcement.svg";
 
 export const CHAT_IMAGES = [
   IMG_118900685fa81a0d1a2b5cac1bdfc8e1c18df6e1.src,
@@ -35,6 +37,8 @@ const IMAGES = {
   AIBlue: AIBlue,
   UPLOAD: UPLOAD,
   GRAPH_UP: GRAPH_UP,
+  ANNOUNCEMENT: ANNOUNCEMENT,
+  AI_ICON: AI_ICON,
 };
 
 export default IMAGES;

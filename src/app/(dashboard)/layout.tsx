@@ -10,7 +10,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <SidebarProvider>
       <div className="flex root-container">
         <Sidebar />
-        <div className="content w-[calc((100dvw-300px))]">{children}</div>
+        <div className="content">{children}</div>
       </div>
     </SidebarProvider>
   );

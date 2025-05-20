@@ -61,7 +61,7 @@ export default function Sidebar() {
     {
       label: "Family",
       icon: <User />,
-      href: "/family",
+      href: "/family/chat/",
       is_active: pathname.includes("/family"),
     },
     {
@@ -79,14 +79,6 @@ export default function Sidebar() {
         collapsible="icon"
         className="w-60 h-screen bg-white border-r border-gray-200 flex flex-col justify-between"
       >
-        <div
-          className={`collapse-icon ${open ? "expanded" : "collapsed"} hidden`}
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          <ChevronLeft color="white" />
-        </div>
         <SidebarContent>
           {/* Logo */}
           <div className="p-6 flex items-center space-x-2">

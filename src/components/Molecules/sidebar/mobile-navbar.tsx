@@ -36,7 +36,7 @@ export default function ResponsiveSidebar() {
     {
       label: "Family",
       icon: <User />,
-      href: "/family",
+      href: "/family/chat/",
       is_active: pathname.includes("/family"),
     },
     {

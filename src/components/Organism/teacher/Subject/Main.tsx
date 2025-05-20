@@ -1,4 +1,6 @@
+"use client"
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import ActionCard from "@/components/Molecules/actionCard";
 import SubectDetails from "./SubjectDetails";
@@ -13,6 +15,8 @@ import "./main.css";
 import { Button } from "@/components/ui/button";
 import { MoveLeft } from "lucide-react";
 const Main = () => {
+
+  const router = useRouter()
      
   return (
     <div className="flex flex-col p-4 gap-y-6">
@@ -50,6 +54,7 @@ const Main = () => {
                     subHeading="Period 1 Biology"
                     buttonLabel="Fix"
                     buttonColor="#ff3b30"
+                    buttonClickHandler={() => router.push("/students/overview/")}
                   />
                 </div>
               </div>

@@ -14,21 +14,31 @@ import IMAGES from "@/assets/images";
 interface AIAssesmentProps {
   title?: string;
   content?: React.ReactNode;
+  theme?: "red" | "blue";
 }
 
 export const AIAssesmentContent: React.FC<AIAssesmentProps> = ({
   content,
   title,
+  theme = "blue",
 }) => {
+  const className = theme === "blue" ? "bg-[#00235a]" : "bg-[#FF34280F]";
+  const iconBgColor = theme === "blue" ? "bg-[#00235a]" : "bg-[#FF3B30]";
   return (
-    <div className="bg-[#00235a] shadow-shadow-sm rounded-[8px] px-[24px] py-[18px] w-full max-w-[100%]">
+    <div
+      className={`shadow-shadow-sm rounded-[8px] px-[24px] py-[18px] w-full max-w-[100%] ${className}`}
+    >
       <div className="flex items-center justify-between w-full gap-1 text-white text-[22px] tracking-[-0.40px] leading-[22px]">
-        <span>{title || "AI Assessment"}</span>
-        <div className="w-10 h-10 bg-[#edf4ff33] rounded overflow-hidden flex items-center justify-center">
+        <span className="text-[#FF3B30] font-sans font-semibold">
+          {title || "AI Assessment"}
+        </span>
+        <div
+          className={`w-10 h-10 rounded overflow-hidden flex items-center justify-center ${iconBgColor}`}
+        >
           <Image
             className="w-[23px] h-6"
             alt="G"
-            src={IMAGES.AI}
+            src={IMAGES.AI_ICON}
             height={23}
             width={24}
           />
