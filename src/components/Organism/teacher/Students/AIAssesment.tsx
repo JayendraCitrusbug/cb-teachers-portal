@@ -23,13 +23,14 @@ export const AIAssesmentContent: React.FC<AIAssesmentProps> = ({
   theme = "blue",
 }) => {
   const className = theme === "blue" ? "bg-[#00235a]" : "bg-[#FF34280F]";
-  const iconBgColor = theme === "blue" ? "bg-[#00235a]" : "bg-[#FF3B30]";
+  const iconBgColor = theme === "blue" ? "bg-[#EEF5FF33]" : "bg-[#FF3B30]";
+  const fontColor = theme === "blue" ? "#ffffff" : "#FF3B30";
   return (
     <div
       className={`shadow-shadow-sm rounded-[8px] px-[24px] py-[18px] w-full max-w-[100%] ${className}`}
     >
       <div className="flex items-center justify-between w-full gap-1 text-white text-[22px] tracking-[-0.40px] leading-[22px]">
-        <span className="text-[#FF3B30] font-sans font-semibold">
+        <span className={`text-[${fontColor}] font-sans font-semibold`}>
           {title || "AI Assessment"}
         </span>
         <div

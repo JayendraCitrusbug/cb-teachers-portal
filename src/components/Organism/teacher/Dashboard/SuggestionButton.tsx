@@ -29,14 +29,15 @@ export default function AIHelpPanel() {
       </div>
 
       {/* Suggestions Title */}
-      <h2 className="mt-10 text-lg font-semibold text-[#0a2540]">Suggestions</h2>
+      <h2 className="mt-10 text-lg font-semibold text-[#0a2540]">
+        Suggestions
+      </h2>
 
       {/* Suggestion Buttons */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 px-4">
         <SuggestionButton
           text="How Many Students Below 50%"
-          icon={<ChartNoAxesCombined  className="w-4 h-4" />}
-          
+          icon={<ChartNoAxesCombined className="w-4 h-4" />}
         />
         <SuggestionButton
           text="Group Teaching Recommendations"
@@ -58,11 +59,19 @@ export default function AIHelpPanel() {
 interface SuggestionButtonProps {
   text: string;
   icon: React.ReactNode;
+  clickHandler?: React.MouseEventHandler;
 }
 
-const SuggestionButton = ({ text, icon }: SuggestionButtonProps) => {
+export const SuggestionButton = ({
+  text,
+  icon,
+  clickHandler,
+}: SuggestionButtonProps) => {
   return (
-    <button className="flex justify-center items-center border-[2px] border-blue-500 text-blue-600 font-medium text-sm px-4 py-4 rounded-xl hover:bg-blue-50 transition gap-3 cursor-pointer">
+    <button
+      onClick={clickHandler}
+      className="flex justify-center items-center border-[2px] border-blue-500 text-blue-600 font-medium text-sm px-4 py-4 rounded-xl hover:bg-blue-50 transition gap-3 cursor-pointer"
+    >
       {text}
       <span>{icon}</span>
     </button>

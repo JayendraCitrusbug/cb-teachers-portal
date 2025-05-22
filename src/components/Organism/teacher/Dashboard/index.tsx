@@ -1,4 +1,6 @@
 import PerformanceCard from "./PerformanceCard";
 import SuggestionButton from "./SuggestionButton";
 
-export { PerformanceCard, SuggestionButton };
+import PerofrmanceOverview from "./PerofrmanceOverview"
+
+export { PerformanceCard, SuggestionButton, PerofrmanceOverview };
