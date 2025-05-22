@@ -9,6 +9,7 @@ import { useSearchParams } from "next/navigation";
 import "./style.css";
 
 function AiResponseHeader() {
+  const router = useRouter();
   return (
     <div className="flex flex-col border-b pb-6 gap-7">
       <div className="w-full flex justify-between items-center gap-4 ai-response-header">
@@ -30,7 +31,10 @@ function AiResponseHeader() {
             Period 1: Biology
           </button>
         </div>
-        <button className="h-[40px] flex items-center gap-2 bg-blue-900 text-white px-4 py-1.5 rounded-md text-sm font-medium">
+        <button
+          onClick={() => router.push("/overview")}
+          className="h-[40px] flex items-center gap-2 bg-blue-900 text-white px-4 py-1.5 rounded-md text-sm font-medium cursor-pointer"
+        >
           <ArrowLeft className="w-4 h-4" />
           Back to Dashboard
         </button>
