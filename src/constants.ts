@@ -1,0 +1,8 @@
+export const COLORS = {
+  PRIMARY: "#00235A",
+  SECONDARY: "#DEDFE0",
+  REJECTED: "#FF3B30",
+  WARNING: "#FF9500",
+  SUCCESS: "#34C759",
+  AI_BLUE:"#00B2D6"
+};

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import Table from "@/components/Molecules/Table";
 import { SuggestionButton } from "./SuggestionButton";
-import AIChatInput from "./AIChatInput";
+import AIChatInput from "../../../Molecules/AIChatInput";
 
 const HeadContent = () => {
   return (

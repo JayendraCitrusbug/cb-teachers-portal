@@ -22,6 +22,7 @@ interface ChatListItemProps {
   messagePreview: string;
   unreadCount: number;
   online?: boolean;
+  id: string;
 }
 
 const ChatListItem: React.FC<ChatListItemProps> = ({
@@ -32,9 +33,15 @@ const ChatListItem: React.FC<ChatListItemProps> = ({
   messagePreview,
   unreadCount,
   online = false,
+  id,
 }) => {
+  const { selectedChatId } = useChatContext();
   return (
-    <div className="flex items-center justify-between px-3 py-2 hover:bg-gray-100 transition cursor-pointer w-full">
+    <div
+      className={`flex items-center justify-between px-3 py-2 hover:bg-gray-100 transition cursor-pointer w-full ${
+        selectedChatId === id ? "bg-gray-100" : ""
+      }`}
+    >
       <div className="flex items-center space-x-3">
         <div className="relative w-[46px] h-[46px]">
           <Image
@@ -51,17 +58,21 @@ const ChatListItem: React.FC<ChatListItemProps> = ({
           )}
         </div>
         <div className="flex flex-col gap-0.5">
-          <div className="flex items-center gap-2 text-sm">
-            <span className="font-semibold text-black">{name}</span>
-            <span className="text-gray-500">{role}</span>
+          <div className="flex items-center gap-2 text-sm text-foreground font-sans">
+            <span className="font-bold text-black">{name}</span>
+            <span className="text-foreground font-medium text-[11px] font-sans">
+              {role}
+            </span>
           </div>
-          <div className="text-sm text-gray-500 truncate max-w-[170px]">
+          <div className="text-sm text-muted-foreground font-sans font-normal truncate max-w-[170px]">
             {messagePreview}
           </div>
         </div>
       </div>
       <div className="flex flex-col items-center gap-1">
-        <span className="text-xs text-gray-500">{time}</span>
+        <span className="text-foreground font-medium text-[12px] font-sans">
+          {time}
+        </span>
         {unreadCount > 0 && (
           <div className="bg-green-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
             {unreadCount}
@@ -80,7 +91,7 @@ function Sidebar() {
   return (
     <div className="chat-sidebar border border-[#E4E4E7] rounded-lg bg-white md:flex flex-col shadow-sm">
       <div className="px-6 w-full pt-6">
-      <SearchInput />
+        <SearchInput />
       </div>
 
       <div className="flex justify-between items-center w-full gap-1 p-6">
@@ -95,7 +106,11 @@ function Sidebar() {
 
       <div className="overflow-y-auto flex flex-col gap-1 items-start">
         {chatItems.map((chat) => (
-          <div key={chat.id} onClick={() => setSelectedChatId(chat.id)} className="w-full">
+          <div
+            key={chat.id}
+            onClick={() => setSelectedChatId(chat.id)}
+            className="w-full"
+          >
             <ChatListItem {...chat} />
           </div>
         ))}
@@ -157,7 +172,7 @@ function ChatWindow() {
   if (!chat) return null;
 
   return (
-    <div className="border border-[#E4E4E7] rounded-lg w-full max-w-full h-screen relative shadow-sm">
+    <div className="border border-[#E4E4E7] rounded-lg w-full max-w-full h-screen relative shadow-sm bg-white">
       <div className="bg-white p-4 rounded-lg w-full">
         {/* Header */}
         <div className="flex items-center justify-between pb-4">
@@ -176,7 +191,9 @@ function ChatWindow() {
               </div>
               <span
                 className={`text-sm ${
-                  chat.online ? "text-green-600" : "text-gray-400"
+                  chat.online
+                    ? "text-[var(--color-success)]"
+                    : "text-[var(--color-rejected)]"
                 }`}
               >
                 {chat.online ? "Online" : "Offline"}
@@ -196,24 +213,24 @@ function ChatWindow() {
             <div
               key={msg.id}
               className={`flex ${
-          msg.sender === "me" ? "justify-end" : "items-start gap-2"
+                msg.sender === "me" ? "justify-end" : "items-start gap-2"
               }`}
             >
               <div
-          className={`px-4 py-2 rounded-md text-sm max-w-[70%] ${
-            msg.sender === "me"
-              ? "bg-[#00235A] text-white"
-              : "bg-gray-100 text-black"
-          }`}
+                className={`px-4 py-2 rounded-md text-sm max-w-[70%] ${
+                  msg.sender === "me"
+                    ? "bg-[#00235A] text-white"
+                    : "bg-gray-100 text-black"
+                }`}
               >
-          {msg.content}
-          <div
-            className={`text-xs mt-1 ${
-              msg.sender === "me" ? "text-gray-200" : "text-gray-500"
-            }`}
-          >
-            {msg.time}
-          </div>
+                {msg.content}
+                <div
+                  className={`text-xs mt-1 ${
+                    msg.sender === "me" ? "text-gray-200" : "text-gray-500"
+                  }`}
+                >
+                  {msg.time}
+                </div>
               </div>
             </div>
           ))}

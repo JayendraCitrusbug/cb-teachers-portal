@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Megaphone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import {
   Select,
@@ -60,17 +60,23 @@ export default function ComposeMessage() {
             className="compose-message w-full resize-none p-2 h-[335px]"
           />
         </div>
-      </div>
-      <div className="flex gap-3 pt-4 self-end action-buttons">
-        <Button className="bg-[#00235A] text-white hover:bg-[#00235A] cursor-pointer w-full">
-          Accept & Send <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
-        <Button variant="ghost" className="text-decoration-none cursor-pointer">
-          Regenerate
-        </Button>
-        <Button variant="ghost" className="text-decoration-none cursor-pointer">
-          Write Own
-        </Button>
+        <div className="flex gap-3 pt-4 self-end action-buttons">
+          <Button className="bg-[#00235A] text-white hover:bg-[#00235A] cursor-pointer">
+            Accept & Send <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+          <Button
+            variant="ghost"
+            className="text-decoration-none cursor-pointer"
+          >
+            Regenerate
+          </Button>
+          <Button
+            variant="ghost"
+            className="text-decoration-none cursor-pointer"
+          >
+            Write Own
+          </Button>
+        </div>
       </div>
     </>
   );

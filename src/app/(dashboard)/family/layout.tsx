@@ -3,7 +3,7 @@ import { FamilySection } from "@/components/Organism/teacher/Family";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <div className="flex flex-col p-4 gap-y-6">
+      <div className="flex flex-col">
         <h1 className="font-semibold text-2xl">Family</h1>
         <FamilySection />
       </div>

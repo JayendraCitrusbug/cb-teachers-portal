@@ -1,4 +1,15 @@
 .sidebar-item-link::before {
-    background-color: "#00235A" !important;
-    width: 4px !important;
+  background-color: "#00235A" !important;
+  width: 4px !important;
+}
+
+.sidebar-link {
+  color: white;
+  background-color: var(--color-primary) !important;
+}
+
+.sidebar-link.active {
+  background-color: white !important;
+  color: var(--color-primary) !important;
+  border-radius: 8px !important;
 }

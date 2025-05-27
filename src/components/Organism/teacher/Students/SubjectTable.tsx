@@ -48,7 +48,7 @@ export const subject = [
         overallMastery: { score: "70%", color: "#ff9500" },
         memoryRecall: {
             text: "Memorizing",
-            borderColor: "#FF3B30",
+            borderColor: "#FF9500",
         },
         teacherAction: true,
     },
@@ -100,12 +100,12 @@ const SubjectTable = () => {
             <div className="flex flex-col items-start gap-5 w-full">
                 <div className="flex items-center justify-between w-full flex-wrap gap-2">
                     <h2 className="font-semibold text-zinc-950 text-xl tracking-[-0.40px] leading-5">
-                        Subject List
+                       Lesson
                     </h2>
                     <div className="flex items-center gap-4 flex-wrap">
-                        <div className="flex items-center border border-[#E4E4E7] rounded-md h-auto overflow-hidden bg-white justify-center">
+                        {/* <div className="flex items-center border border-[#E4E4E7] rounded-md h-auto overflow-hidden bg-white justify-center">
                             <AIAssesment />
-                        </div>
+                        </div> */}
                         <div className="flex items-center border border-[#E4E4E7] rounded-md w-[102px] h-auto overflow-hidden bg-white justify-center">
                             <button className="flex items-center gap-2 px-2 text-gray-900 hover:text-[#2196F3] focus:outline-none cursor-pointer py-2">
                                 {/* Filter icon from lucide-react */}
@@ -153,20 +153,20 @@ const SubjectTable = () => {
                                         className="h-[65px] border-b border-zinc-200"
                                     >
                                         <TableCell className="h-12 text-center cursor-pointer" onClick={() => router.push(`/students/StudentID/${currentSubject.name}`)}>
-                                            <span className="font-medium text-[#1d1d1d] text-sm">
+                                            <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
                                                 {currentSubject.name}
                                             </span>
                                         </TableCell>
                                         <TableCell className="h-12 text-center">
                                             <div
-                                                className="inline-flex w-[240px] h-8 items-center justify-center rounded text-[#1d1d1d]"
+                                                className="font-medium text-base leading-6 text-center text-[#3E71C0]"
                                             >
                                                 {currentSubject.lesson}
                                             </div>
                                         </TableCell>
                                         <TableCell className="h-12 text-center">
                                             <div
-                                                className="inline-flex w-8 h-8 items-center justify-center rounded text-[#1d1d1d]"
+                                                className="inline-flex w-8 h-8 items-center justify-center rounded text-[#FFFFFF]"
                                                 style={{
                                                     backgroundColor: currentSubject.aiAssesment.color
                                                 }}
@@ -179,7 +179,7 @@ const SubjectTable = () => {
                                                 className={`font-extrabold text-lg`}
                                             >
                                                 <Badge
-                                                    className="px-3.5 py-2 font-medium"
+                                                    className="px-3.5 py-2 font-medium max-w-[130px] min-w-[130px] justify-center"
                                                     variant="outline"
                                                     style={{
                                                         backgroundColor: currentSubject.memoryRecall.borderColor,
@@ -213,7 +213,7 @@ const SubjectTable = () => {
                 </div>
             </div>
 
-            <Pagination className="justify-end">
+            {/* <Pagination className="justify-end">
                 <PaginationContent>
                     <PaginationItem>
                         <PaginationPrevious href="#" />
@@ -236,7 +236,7 @@ const SubjectTable = () => {
                         <PaginationNext href="#" />
                     </PaginationItem>
                 </PaginationContent>
-            </Pagination>
+            </Pagination> */}
         </div>
     );
 };

@@ -1,7 +1,7 @@
 "use client";
 // components/AIHelpPanel.tsx
 import { ChartNoAxesCombined, Users2, Notebook, LineChart } from "lucide-react";
-import AIChatInput from "./AIChatInput";
+import AIChatInput from "../../../Molecules/AIChatInput";
 
 export default function AIHelpPanel() {
   return (

@@ -1,5 +1,6 @@
 .content {
   width: calc(100dvw - 300px);
+  max-width: 100%;
 }
 
 .collapse-icon {
@@ -19,10 +20,26 @@
   transition: transform 0.3s ease-in-out;
 }
 
+#carousel-navigation-button {
+  background-color: var(--color-primary);
+}
+
+#carousel-navigation-button:disabled {
+  background-color: #ffffff;
+  border: 2px solid var(--color-primary);
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    width: calc(100dvw - 100px);
+  }
+}
+
 @media (max-width: 1000px) {
   .content {
-  width: calc(100dvw - 100px);
-}
+    width: calc(100dvw - 100px);
+  }
 }
 
 @media screen and (max-width: 768px) {

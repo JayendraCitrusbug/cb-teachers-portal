@@ -30,12 +30,15 @@ interface TableInterface {
 const index: React.FC<TableInterface> = ({ headers, data }) => {
   return (
     <div className="w-full">
-      <Card className="border-zinc-200">
+      <Card className="border-zinc-200 min-w-[700px]">
         <Table className="w-full rounded-lg">
           <TableHeader>
             <TableRow className="h-[65px] border-b border-zinc-200">
               {headers.map((header, idx) => (
-                <TableHead key={idx} className={`h-12 text-center ${header.className}`}>
+                <TableHead
+                  key={idx}
+                  className={`h-12 text-center ${header.className}`}
+                >
                   {header.label}
                 </TableHead>
               ))}
