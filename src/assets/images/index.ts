@@ -20,9 +20,18 @@ import ANNOUNCEMENT from "./announcement.svg";
 import AI_ROBOT from "./ai-robot.svg";
 import MOON from "./moon.svg";
 import MOON_BLUE from "./moon-blue.svg";
+import MOON_GRAY from "./moon-gray.svg";
 import LESSON_PLAN from "./lesson-plan.svg";
 import CLIPBOARD_PEN from "./clipboard-pen.svg";
 import AI_CHAT_AVATAR from "./ai-chat-avatar.svg";
+import accordionIcon from "./accordion-icon.svg";
+import toolIcon from "./tool-icon.svg";
+import homeWorkIcon from "./home-work.svg";
+import emailParentIcon from "./email-parent-icon.svg";
+import AI_GRAY from "./ai-gray.svg";
+import PLUS_ICON from "./plus-icon.svg";
+import MIKE_ICON from "./mice-icon.svg";
+import PROFILE_ICON from "./profile-img.svg";
 
 import family from "./sidebar/family.svg";
 import familyActive from "./sidebar/family-active.svg";
@@ -65,9 +74,18 @@ const IMAGES = {
   AI_ROBOT: AI_ROBOT,
   MOON: MOON,
   MOON_BLUE: MOON_BLUE,
+  MOON_GRAY: MOON_GRAY,
   LESSON_PLAN: LESSON_PLAN,
   CLIPBOARD_PEN: CLIPBOARD_PEN,
   AI_CHAT_AVATAR: AI_CHAT_AVATAR,
+  ACCORDION_ICON: accordionIcon,
+  TOOL_ICON: toolIcon,
+  HOME_WORK_ICON: homeWorkIcon,
+  EMAIL_PARENT_ICON: emailParentIcon,
+  AI_GRAY: AI_GRAY,
+  PLUS_ICON: PLUS_ICON,
+  MIKE_ICON: MIKE_ICON,
+  PROFILE_ICON: PROFILE_ICON,
 };
 
 export default IMAGES;

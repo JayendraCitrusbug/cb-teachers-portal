@@ -29,7 +29,7 @@ function LessonPlanCard({
   onAddToCalendar?: () => void;
 }) {
   return (
-    <div className="bg-[#C4EBD1] border border-[#34C759] rounded-xl p-6 mt-5 flex flex-col font-sans">
+    <div className="bg-[#71FF9521] border border-[#34C759] rounded-xl p-6 mt-5 flex flex-col ">
       <div className="text-[#565656] text-lg font-medium text-center">
         {title}
       </div>
@@ -82,10 +82,10 @@ function LessonPlanMaterialsSection({
   return (
     <div className="rounded-xl mt-5 text-[#222]">
       <div>
-        <span className="font-medium font-sans text-[#18181B]">
+        <span className="font-medium  text-[#18181B]">
           {materialsTitle}
         </span>
-        <ul className="list-disc pl-6 mt-1 text-[16px] font-sans">
+        <ul className="list-disc pl-6 mt-1 text-[16px] ">
           {materials.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
@@ -95,14 +95,14 @@ function LessonPlanMaterialsSection({
         <span className="font-medium text-[#18181B]">
           {differentiationTitle}
         </span>
-        <div className="mt-1 text-[16px] font-sans">
+        <div className="mt-1 text-[16px] ">
           {differentiationDescription}
         </div>
         <ul className="list-disc pl-8 mt-2 space-y-2">
           {differentiation.map((item, idx) => (
             <li key={idx}>
               {item.label && (
-                <span className="font-normal text-[#18181B] font-sans">
+                <span className="font-normal text-[#18181B] ">
                   {item.label}
                 </span>
               )}
@@ -152,17 +152,17 @@ function LessonPlanHeader({
   }[];
 }) {
   return (
-    <div className="bg-[#D8F5DF] border border-[#34C759] rounded-xl p-6 max-w-3xl mx-auto mt-3 font-sans">
+    <div className="bg-[#DEF6FFD4] border border-[#DEF6FFD4] rounded-xl p-6 max-w-3xl mx-auto mt-3 ">
       {/* Header */}
       <div className="flex flex-col gap-1 items-center">
-        <div className="text-[#34C759] text-xl font-semibold text-center">
+        <div className="text-[var(--primary)] text-xl font-semibold text-center">
           {title}
         </div>
-        <div className="text-[#34C759] text-lg font-medium text-center">
+        <div className="text-[var(--primary)] text-lg font-medium text-center">
           {subtitle}
         </div>
       </div>
-      <hr className="border-[#34C759] opacity-40 my-3" />
+      <hr className="border-[var(--primary)] opacity-40 my-3" />
       {/* Standards */}
       <div className="flex items-center gap-3 flex-wrap">
         <span className="font-semibold text-[#181818] text-[16px]">
@@ -173,7 +173,7 @@ function LessonPlanHeader({
             group.map((std, i) => (
               <span
                 key={std + i}
-                className="inline-block bg-[#34C759] text-white px-3 py-0.5 rounded-md font-semibold text-[15px]"
+                className="inline-block bg-[var(--primary)] text-white px-3 py-0.5 rounded-md font-semibold text-[15px]"
               >
                 {std}
               </span>
@@ -230,14 +230,11 @@ export function LessonPlanSuggestionButtons({
 }) {
   return (
     <div className={cn("w-full flex flex-col items-center", className)}>
-      <div className="text-center text-[#232323] text-[18px] font-medium mb-6">
-        Would you like me to generate:
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl h-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl h-full mb-6">
         {options.map((option, idx) => (
           <button
             key={option}
-            className="bg-[var(--color-ai-blue)] text-white text-sm font-medium rounded-2xl px-8 py-3 min-h-[1rem] min-w-fit text-center transition hover:bg-[#019bc1] focus:outline-none"
+            className="bg-[#2B2B2B] text-white text-sm font-medium rounded-2xl px-8 py-3 min-h-[1rem] min-w-fit text-center transition hover:bg-[#019bc1] focus:outline-none"
             style={{
               boxShadow: "0px 4px 16px 0px rgba(3, 182, 221, 0.07)",
               wordBreak: "break-word",
@@ -338,7 +335,6 @@ const mockChatStages = [
                   "Divide two-and three-digit numbers using place value and known facts.",
                 activities: [
                   "Fluency: Sprint with multiplication facts and multiples of 10",
-                  // ...other activities
                 ],
                 date: "20 May 2025",
                 time: "09:30 AM",
@@ -402,13 +398,6 @@ function UserMessage({ message, className }: ChatBubbleProps) {
         className
       )}
     >
-      <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[#00235A0A] border border-[#D8DADD] shadow-sm">
-        <User
-          color={COLORS.PRIMARY}
-          className="w-5 h-5 text-[var(--color-primary)]"
-        />
-      </div>
-
       <div
         className={cn(
           "bg-[#F7F8FA] rounded-lg px-5 py-3 shadow-sm text-[15px] text-[#222] leading-[1.3] font-normal",
@@ -435,7 +424,7 @@ function AIMessage({
 }) {
   return (
     <div className="relative w-[82%] mx-auto">
-      <div className="bg-white rounded-2xl px-7 py-5 shadow-lg flex flex-col">
+      <div className="bg-white rounded-2xl px-7 py-5 flex flex-col">
         <span className="text-[#162D57] font-medium text-[15px] leading-snug mb-3">
           {title}
         </span>
@@ -482,7 +471,7 @@ export default function LessonPlanChat() {
   return (
     <div className="max-h-screen overflow-y-auto bg-[#F4F7FA] py-0 sm:py-4 flex flex-col items-center w-full">
       <div
-        className="w-full bg-white rounded-2xl mx-auto shadow-sm px-0 md:px-7 pt-6 pb-3 flex flex-col h-full justify-center items-center"
+        className="w-full bg-white rounded-2xl mx-auto shadow-sm pb-30 px-4 md:px-7 pt-6 md:pb-3 flex flex-col h-full justify-center items-center"
         style={{
           minHeight: "calc(100dvh - 100px)",
         }}
@@ -506,18 +495,24 @@ export default function LessonPlanChat() {
               />
             )
           )}
+          {chatMessages.slice(-1)[0].type === "final_response" && (
+            <div className="text-start text-[#232323] text-[18px] font-medium mb-6">
+              Would you like me to generate:
+            </div>
+          )}
           <div ref={chatBottomRef} />
         </div>
-
-        <LessonPlanSuggestionButtons
-          options={[
-            "A Daily Exit Ticket",
-            "A Set Of Differentiated Task Cards",
-            "A Visual Another Chart For Division Strategies",
-            "Prep Your Next Wee's Follow-Up Lessons",
-          ]}
-          onOptionClick={(option, idx) => handleSend()}
-        />
+        {chatMessages.slice(-1)[0].type === "final_response" && (
+          <LessonPlanSuggestionButtons
+            options={[
+              "A Daily Exit Ticket",
+              "A Set Of Differentiated Task Cards",
+              "A Visual Another Chart For Division Strategies",
+              "Prep Your Next Wee's Follow-Up Lessons",
+            ]}
+            onOptionClick={(option, idx) => handleSend()}
+          />
+        )}
 
         <div className="w-full max-w-[800px] flex items-center gap-2 rounded-lg bg-white shadow-xl mt-auto mb-1 sticky bottom-0">
           <AIChatInput

@@ -4,6 +4,22 @@ import * as React from "react";
 import { Pie, PieChart, Label } from "recharts";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+export const PeriodDropdown = ({
+  options = ["Time Period", "Last Week", "This Month"],
+}) => {
+  const [selected, setSelected] = useState(options[0]);
+  return (
+    <div className="relative">
+      <button className="border flex items-center gap-4 border-gray-200 rounded-lg py-2 px-4 bg-white text-gray-700 text-[15px] min-w-[120px] text-left shadow-sm focus:ring-2 focus:ring-blue-200 transition-all">
+        <span>{selected}</span>
+        <ChevronDown className="h-4 w-4 text-gray-500" />
+      </button>
+    </div>
+  );
+};
 
 type StudentStatus = {
   label: string;
@@ -16,6 +32,7 @@ interface PieChartSectionProps {
   title?: string;
   data: StudentStatus[];
   className?: string;
+  showDropdown?: boolean;
 }
 
 const CHART_SIZE = 180;
@@ -26,6 +43,7 @@ export function PieChartSection({
   title = "Total Students",
   data,
   className,
+  showDropdown = false,
 }: PieChartSectionProps) {
   const total = React.useMemo(
     () => data.reduce((acc, cur) => acc + cur.value, 0),
@@ -36,8 +54,11 @@ export function PieChartSection({
     <Card
       className={`w-full p-6 flex flex-col gap-4 rounded-xl shadow border ${className}`}
     >
-      <div className="text-xl font-semibold">{title}</div>
-      <div className="flex items-center gap-8 flex-wrap">
+      <div className="flex w-full items-center gap-4 justify-between mb-2">
+        <div className="text-xl font-semibold">{title}</div>
+        {showDropdown && <PeriodDropdown />}
+      </div>
+      <div className="flex flex-col items-center justify-center gap-8 flex-wrap">
         {/* Donut Chart */}
         <PieChart width={CHART_SIZE} height={CHART_SIZE}>
           <Pie
@@ -81,7 +102,7 @@ export function PieChartSection({
         </PieChart>
 
         {/* Legend */}
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4 max-w-[400px]">
           {data.map((item, index) => (
             <div
               key={`${item.label}_${index}`}

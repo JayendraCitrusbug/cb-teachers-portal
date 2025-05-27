@@ -30,21 +30,28 @@
   opacity: 1;
 }
 
+.custom-calendar {
+  font-size: 18px; /* Increase font size */
+  --rdp-cell-size: 50px; /* Controls day cell size */
+  --rdp-caption-font-size: 1.2rem;
+  --rdp-accent-color: #3f51b5;
+}
+
 @media (max-width: 1200px) {
   .content {
-    width: calc(100dvw - 100px);
+    width: calc(100dvw - 300px);
   }
 }
 
 @media (max-width: 1000px) {
   .content {
-    width: calc(100dvw - 100px);
+    width: calc(100dvw - 300px);
   }
 }
 
 @media screen and (max-width: 768px) {
   .content {
-    width: 100dvw;
+    width: 100%;
   }
   .sidebar-container {
     position: absolute;
@@ -57,4 +64,10 @@
   .root-container {
     flex-direction: column;
   }
+}
+@media (max-width: 767px) {
+.main-page-content {
+    height: calc(100dvh - 110px);
+    overflow-y: auto;
+}
 }

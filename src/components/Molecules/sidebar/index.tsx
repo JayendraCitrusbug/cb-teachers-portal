@@ -2,28 +2,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ChevronDown } from "lucide-react";
 
 import { ChevronLeft } from "lucide-react";
 
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
 import {
   Sidebar as SidebarComponent,
   SidebarContent,
   SidebarFooter,
   useSidebar,
-  SidebarInset,
 } from "@/components/ui/sidebar";
+
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import IMAGES, { SIDEBAR_ICONS } from "@/assets/images";
 
 import "./sidebar.css";
+import MobileBottomBar from "./bottombar";
 
 export default function Sidebar() {
+  const isMobile = useIsMobile();
   const pathname = usePathname();
   const { setOpen, open } = useSidebar();
 
@@ -80,6 +77,10 @@ export default function Sidebar() {
     },
   ];
 
+  if (isMobile) {
+    return <MobileBottomBar />;
+  }
+
   return (
     <SidebarComponent
       collapsible="icon"
@@ -122,8 +123,14 @@ export default function Sidebar() {
           ))}
         </nav>
       </SidebarContent>
-      <SidebarFooter className="p-4 flex items-center flex-row space-x-3 bg-[var(--color-primary)] rounded-b-xl">
-        <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-white font-bold">
+      <SidebarFooter className="p-4 flex items-center justify-center flex-row space-x-3 bg-[var(--color-primary)] rounded-b-xl">
+        <div className="flex items-center gap-2 space-x-2 mb-10">
+          <Image src={IMAGES.PROFILE_ICON} alt="Logo" />
+          <p className="text-white font-poppins font-semibold text-[16.95px] leading-[100%] tracking-normal text-center">
+            Michal
+          </p>
+        </div>
+        {/* <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-white font-bold">
           M
         </div>
         <div className="flex flex-row items-center">
@@ -154,7 +161,7 @@ export default function Sidebar() {
           <div>
             <ChevronDown color="#363D4A" />
           </div>
-        </div>
+        </div> */}
       </SidebarFooter>
 
       {/* User Profile */}

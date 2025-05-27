@@ -8,9 +8,16 @@ type AlertCardProps = {
   title: string;
   description: string;
   color: keyof typeof COLORS;
+  hrefLink?: string;
 };
 
-function AlertCard({ icon, title, description, color }: AlertCardProps) {
+function AlertCard({
+  icon,
+  title,
+  description,
+  color,
+  hrefLink,
+}: AlertCardProps) {
   return (
     <div className="bg-white p-4 rounded-xl shadow hover:shadow-md transition-all h-full">
       <div className="flex flex-col items-start justify-between h-full mb-4">
@@ -27,7 +34,7 @@ function AlertCard({ icon, title, description, color }: AlertCardProps) {
           {description}
         </p>
         <Link
-          href="#"
+          href={hrefLink || "#"}
           className={`text-xs font-semibold flex items-center self-end gap-1`}
           style={{ color: COLORS[color] }}
         >

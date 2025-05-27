@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 
 import { AIAssessmentContent } from "@/components/Molecules/ai-assessment/AIAssessmentContent";
 import { PieChartSection } from "@/components/Molecules/graph-section/Section";
 import { Badge } from "@/components/ui/badge";
 import Table from "@/components/Molecules/Table";
-import { cn } from "@/lib/utils";
-import IMAGES from "@/assets/images";
-import { COLORS } from "@/constants";
+import { CriticalStudentCard } from "@/components/Molecules/Table/TableCard";
 import AIChatInput from "../../../Molecules/AIChatInput";
 import { LessonPlanCard } from "@/components/Molecules/AlertCard/LessonPlanCard";
+
+import { useIsMobile } from "@/hooks/use-mobile";
+
+import IMAGES from "@/assets/images";
+
+import { COLORS } from "@/constants";
 
 const studentsData = [
   { label: "Critical", value: 3, color: "bg-red-500", fill: COLORS.REJECTED },
@@ -26,15 +29,11 @@ const studentsData = [
 
 const criticalStudents = [
   {
-    name: (
-      <span className="text-[#1D1D1D] underline cursor-pointer">
-        Alex Johnson
-      </span>
-    ),
+    name: <span className="text-[#1D1D1D]  cursor-pointer">Alex Johnson</span>,
     assessment: (
       <div
         className="inline-flex w-8 h-8 items-center justify-center rounded text-white"
-        style={{ backgroundColor: "#22C55E" }}
+        style={{ backgroundColor: COLORS.SUCCESS }}
       >
         90
       </div>
@@ -47,7 +46,6 @@ const criticalStudents = [
         style={{
           backgroundColor: "#FEE2E2",
           color: "#E61F23",
-          borderColor: "#E61F23",
         }}
       >
         Trending Down
@@ -64,13 +62,11 @@ const criticalStudents = [
     ),
   },
   {
-    name: (
-      <span className="text-[#1D1D1D] underline cursor-pointer">Sara Khan</span>
-    ),
+    name: <span className="text-[#1D1D1D]  cursor-pointer">Sara Khan</span>,
     assessment: (
       <div
         className="inline-flex w-8 h-8 items-center justify-center rounded text-white"
-        style={{ backgroundColor: "#EF4444" }}
+        style={{ backgroundColor: COLORS.REJECTED }}
       >
         45
       </div>
@@ -83,7 +79,6 @@ const criticalStudents = [
         style={{
           backgroundColor: "#FEF3C7",
           color: "#D97706",
-          borderColor: "#FBBF24",
         }}
       >
         Needs Attention
@@ -100,13 +95,11 @@ const criticalStudents = [
     ),
   },
   {
-    name: (
-      <span className="text-[#1D1D1D] underline cursor-pointer">David SK</span>
-    ),
+    name: <span className="text-[#1D1D1D]  cursor-pointer">David SK</span>,
     assessment: (
       <div
         className="inline-flex w-8 h-8 items-center justify-center rounded text-white"
-        style={{ backgroundColor: "#F97316" }}
+        style={{ backgroundColor: COLORS.WARNING }}
       >
         65
       </div>
@@ -119,7 +112,6 @@ const criticalStudents = [
         style={{
           backgroundColor: "#E0E7FF",
           color: "#6366F1",
-          borderColor: "#6366F1",
         }}
       >
         Top Performance
@@ -137,7 +129,15 @@ const criticalStudents = [
   },
 ];
 
+const headers = [
+  { label: "Student Name", key: "name" },
+  { label: "AI Assessment", key: "assessment" },
+  { label: "Status", key: "status" },
+  { label: "Trend", key: "trend" },
+];
+
 const Biology = () => {
+  const isMobile = useIsMobile();
   const [value, setValue] = useState<string>("");
 
   return (
@@ -146,7 +146,7 @@ const Biology = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-2/5">
           <AIAssessmentContent
-            theme="ai-blue"
+            theme={isMobile ? "blue" : "ai-blue"}
             content={
               <p className="text-white text-[16px] leading-[22px] font-medium tracking-[0.16px] mt-2">
                 Overall Class mastery on 'Unit 4: Photosynthesis' is 78%. 4
@@ -169,16 +169,15 @@ const Biology = () => {
         Critical Students ({criticalStudents.length})
       </h1>
 
-      <Table
-        title="Topics"
-        headers={[
-          { label: "Student Name", key: "name" },
-          { label: "AI Assessment", key: "assessment" },
-          { label: "Status", key: "status" },
-          { label: "Trend", key: "trend" },
-        ]}
-        data={criticalStudents}
-      />
+      {!isMobile ? (
+        <Table title="Topics" headers={headers} data={criticalStudents} />
+      ) : (
+        <>
+          {criticalStudents.map((row, i) => (
+            <CriticalStudentCard headers={headers} row={row} key={i} />
+          ))}
+        </>
+      )}
 
       <LessonPlanCard
         plans={[

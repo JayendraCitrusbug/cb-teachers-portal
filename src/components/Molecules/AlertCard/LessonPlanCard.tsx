@@ -43,7 +43,7 @@ export const LessonPlanCard = ({
         </ul>
       </div>
       {/* Right side: Icon & Action */}
-      <div className="flex flex-col items-end justify-between h-full min-w-[120px]">
+      <div className="flex flex-col items-end h-[123px] justify-between min-h-full min-w-[120px]">
         <Image
           width={70}
           height={70}

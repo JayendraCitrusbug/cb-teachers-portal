@@ -72,9 +72,10 @@ const AIChatInput: React.FC<AIChatInputProps> = ({
           onClick={onVoiceInput}
           aria-label="Voice input"
           disabled={disabled}
-          className="w-[26px] h-[26px] justify-center flex items-center p-0 cursor-pointer rounded-full border-[var(--color-primary)] border mr-[8px] ml-[2px]"
+          className="w-[26px] h-[26px] relative right-6 md:right-0 justify-center flex items-center p-0 cursor-pointer rounded-full mr-[8px] ml-[2px]"
         >
-          <Mic width={14} height={14} color={COLORS.PRIMARY} />
+          <Image src={IMAGES.PLUS_ICON} alt="microphone" className="min-w-[28px]" width={14} height={14}/>
+          {/* <Mic width={14} height={14} color={COLORS.PRIMARY} /> */}
         </button>
       )}
       {onSend && (
@@ -82,9 +83,9 @@ const AIChatInput: React.FC<AIChatInputProps> = ({
           onClick={onSend}
           aria-label="Send"
           disabled={disabled || !value.trim()}
-          className="w-[30px] h-[30px] justify-center flex items-center p-0 cursor-pointer rounded-[50%] border-0 bg-[var(--color-primary)] mr-[10px] ml-[2px]"
+          className="w-[30px] relative right-6 md:right-0 h-[30px] justify-center flex items-center p-0 cursor-pointer rounded-[50%] border-0  mr-[20px] md:mr-[10px] ml-[2px]"
         >
-          <ArrowUp color="white" />
+          <Image src={IMAGES.MIKE_ICON} alt="microphone" className="min-w-[28px]" width={14} height={14}/>
         </button>
       )}
     </div>

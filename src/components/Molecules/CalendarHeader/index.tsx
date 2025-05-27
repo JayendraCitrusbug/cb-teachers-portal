@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { format } from "date-fns";
+import { addDays, subDays, format } from "date-fns";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { CalendarIcon } from "lucide-react";
@@ -24,7 +24,10 @@ export const DatePicker: React.FC = () => {
     <Popover>
       <div className="flex items-center h-[40px] gap-2.5">
         <div className="bg-[var(--color-secondary)] h-full w-[40px] flex items-center justify-center rounded-xs">
-          <ArrowLeft color={COLORS.PRIMARY} />
+          <ArrowLeft
+            color={COLORS.PRIMARY}
+            onClick={() => setDate((prev) => subDays(prev ?? new Date(), 1))}
+          />
         </div>
         <PopoverTrigger asChild>
           <Button
@@ -37,7 +40,10 @@ export const DatePicker: React.FC = () => {
           </Button>
         </PopoverTrigger>
         <div className="bg-[var(--color-secondary)] h-full w-[40px] flex items-center justify-center rounded-xs">
-          <ArrowRight color={COLORS.PRIMARY} />
+          <ArrowRight
+            color={COLORS.PRIMARY}
+            onClick={() => setDate((prev) => addDays(prev ?? new Date(), 1))}
+          />
         </div>
       </div>
       <PopoverContent className="w-auto p-0" align="start">
@@ -46,6 +52,7 @@ export const DatePicker: React.FC = () => {
           selected={date}
           onSelect={setDate}
           initialFocus
+          className="custom-calendar"
         />
       </PopoverContent>
     </Popover>

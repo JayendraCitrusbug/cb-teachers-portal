@@ -25,12 +25,13 @@ interface TableInterface {
   data: any[];
   headers: TableHeaderInterface[];
   title: string;
+  className?: string;
 }
 
-const index: React.FC<TableInterface> = ({ headers, data }) => {
+const index: React.FC<TableInterface> = ({ headers, data ,className=""}) => {
   return (
-    <div className="w-full">
-      <Card className="border-zinc-200 min-w-[700px]">
+    <div className="max-w-full min-w-[300px] md:min-w-[500px] lg:min-w-[700px] xl:min-w-[900px] 2xl:min-w-full overflow-x-auto">
+      <Card className={`${className} border-zinc-200 min-w-[700px]`}>
         <Table className="w-full rounded-lg">
           <TableHeader>
             <TableRow className="h-[65px] border-b border-zinc-200">

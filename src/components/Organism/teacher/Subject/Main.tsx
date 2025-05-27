@@ -12,6 +12,9 @@ import { AIAssessmentContent } from "@/components/Molecules/ai-assessment/AIAsse
 import { LessonPlanCard } from "@/components/Molecules/AlertCard/LessonPlanCard";
 import { PieChartSection } from "@/components/Molecules/graph-section/Section";
 import SubjectDetails from "./SubjectDetails";
+import AlertCard from "@/components/Molecules/AlertCard";
+
+import { ALERT_ICONS } from "@/assets/images";
 
 import { COLORS } from "@/constants";
 
@@ -73,15 +76,28 @@ const Main = () => {
             </Button>
           </div>
           <div className="subject-detail-wrapper flex justify-between gap-6 w-full flex-col lg:flex-row">
-            <div className="w-full flex gap-6">
-              <div className="flex flex-col gap-6 max-w-3/5">
+            <div className="w-full flex gap-6 flex-wrap xl:flex-nowrap">
+              <div className="flex flex-col gap-6 w-full xl:max-w-3/5">
                 <SubjectDetails />
                 <p className="font-semibold text-[20px] text-[#09090B] leading-normal tracking-[-0.4px]">
                   Action Center
                 </p>
-                <div className="flex gap-5">
+                <div className="flex gap-5 flex-wrap 2xl:flex-nowrap">
                   <div className="w-full h-auto">
-                    <ActionCard
+                    <AlertCard
+                      icon={
+                        <Image
+                          src={ALERT_ICONS.ALERT_RED}
+                          alt="Alert"
+                          width={24}
+                          height={24}
+                        />
+                      }
+                      title={"Students Progress Alert"}
+                      description="Sean is critically behind or regressing in multiple concept,"
+                      color={"REJECTED"}
+                    />
+                    {/* <ActionCard
                       title="Performance"
                       icon={
                         <Image
@@ -99,7 +115,7 @@ const Main = () => {
                       buttonClickHandler={() =>
                         router.push("/students/overview/")
                       }
-                    />
+                    /> */}
                   </div>
                   <div className="w-full h-auto">
                     <LessonPlanCard
@@ -115,9 +131,10 @@ const Main = () => {
                 </div>
               </div>
               <PieChartSection
-                className="h-full p-6 flex flex-col gap-4 rounded-xl shadow border bg-white w-2/5"
+                className="h-full p-6 flex flex-col items-center gap-4 rounded-xl shadow border bg-white mb-14 xl:mb-0 xl:w-1/2 max-h-[440px] w-full"
                 title="Class Mastery"
                 data={studentsData}
+                showDropdown
               />
             </div>
           </div>
@@ -130,12 +147,12 @@ const Main = () => {
                 { label: "AI Assessment", key: "assessment" },
                 { label: "Status", key: "status" },
                 { label: "Trend", key: "trend" },
-                { label: "Action", key: "action" },
+                // { label: "Action", key: "action" },
               ]}
               data={[
                 {
                   name: (
-                    <span className="text-[#1D1D1D] underline cursor-pointer">
+                    <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
                       Alex Johnson
                     </span>
                   ),
@@ -147,33 +164,41 @@ const Main = () => {
                       90
                     </div>
                   ),
-                  status: "Struggling with Krebs Cycle",
+                  status: (
+                    <span
+                      className="font-inter font-medium text-base leading-6 text-[#71717A]"
+                      style={{ fontSize: "14px", lineHeight: "20px" }}
+                    >
+                      Struggling with Krebs Cycle
+                    </span>
+                  ),
                   trend: (
                     <Badge
                       className="px-3.5 py-2 font-medium"
                       variant="outline"
                       style={{
-                        backgroundColor: "#FEE2E2",
-                        color: "#E61F23",
-                        borderColor: "#E61F23",
+                        backgroundColor: "#FF3B3099",
+                        color: "#FFFFFF",
+                        borderColor: "#ff3b30",
+                        justifyContent: "center",
                       }}
                     >
                       Trending Down
                     </Badge>
                   ),
-                  action: (
-                    <Image
-                      alt="action"
-                      src={IMAGES.HAMBURGER}
-                      height={24}
-                      width={24}
-                      className="cursor-pointer text-center m-auto"
-                    />
-                  ),
+                  // action: (
+                  //   <Image
+                  //     alt="action"
+                  //     src={IMAGES.HAMBURGER}
+                  //     height={24}
+                  //     width={24}
+                  //     className="cursor-pointer text-center m-auto"
+                  //   />
+                  // ),
                 },
                 {
                   name: (
-                    <span className="text-[#1D1D1D] underline cursor-pointer">
+                    <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
                       Sara Khan
                     </span>
                   ),
@@ -185,33 +210,41 @@ const Main = () => {
                       45
                     </div>
                   ),
-                  status: "Needs Attention on ETC",
+                  status: (
+                    <span
+                      className="font-inter font-medium text-base leading-6 text-[#71717A]"
+                      style={{ fontSize: "14px", lineHeight: "20px" }}
+                    >
+                      Needs Attention on ETC
+                    </span>
+                  ),
                   trend: (
                     <Badge
                       className="px-3.5 py-2 font-medium"
                       variant="outline"
                       style={{
-                        backgroundColor: "#FEF3C7",
-                        color: "#D97706",
-                        borderColor: "#FBBF24",
+                        backgroundColor: "#FF950099",
+                        color: "#FFFFFF",
+                        borderColor: "#ff9500",
+                        justifyContent: "center",
                       }}
                     >
                       Needs Attention
                     </Badge>
                   ),
-                  action: (
-                    <Image
-                      alt="action"
-                      src={IMAGES.HAMBURGER}
-                      height={24}
-                      width={24}
-                      className="cursor-pointer text-center m-auto"
-                    />
-                  ),
+                  // action: (
+                  //   <Image
+                  //     alt="action"
+                  //     src={IMAGES.HAMBURGER}
+                  //     height={24}
+                  //     width={24}
+                  //     className="cursor-pointer text-center m-auto"
+                  //   />
+                  // ),
                 },
                 {
                   name: (
-                    <span className="text-[#1D1D1D] underline cursor-pointer">
+                    <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
                       David SK
                     </span>
                   ),
@@ -223,33 +256,41 @@ const Main = () => {
                       65
                     </div>
                   ),
-                  status: "Good Understanding",
+                  status: (
+                    <span
+                      className="font-inter font-medium text-base leading-6 text-[#71717A]"
+                      style={{ fontSize: "14px", lineHeight: "20px" }}
+                    >
+                      Good Understanding
+                    </span>
+                  ),
                   trend: (
                     <Badge
                       className="px-3.5 py-2 font-medium"
                       variant="outline"
                       style={{
-                        backgroundColor: "#E0E7FF",
-                        color: "#6366F1",
-                        borderColor: "#6366F1",
+                        backgroundColor: "#5856D699",
+                        color: "#FFFFFF",
+                        borderColor: "#5856d6",
+                        justifyContent: "center",
                       }}
                     >
                       Top Performance
                     </Badge>
                   ),
-                  action: (
-                    <Image
-                      alt="action"
-                      src={IMAGES.HAMBURGER}
-                      height={24}
-                      width={24}
-                      className="cursor-pointer text-center m-auto"
-                    />
-                  ),
+                  // action: (
+                  //   <Image
+                  //     alt="action"
+                  //     src={IMAGES.HAMBURGER}
+                  //     height={24}
+                  //     width={24}
+                  //     className="cursor-pointer text-center m-auto"
+                  //   />
+                  // ),
                 },
                 {
                   name: (
-                    <span className="text-[#1D1D1D] underline cursor-pointer">
+                    <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
                       Jhon Michael
                     </span>
                   ),
@@ -261,33 +302,41 @@ const Main = () => {
                       45
                     </div>
                   ),
-                  status: "Mastered",
+                  status: (
+                    <span
+                      className="font-inter font-medium text-base leading-6 text-[#71717A]"
+                      style={{ fontSize: "14px", lineHeight: "20px" }}
+                    >
+                      Mastered
+                    </span>
+                  ),
                   trend: (
                     <Badge
-                      className="px-3.5 py-2 font-medium"
+                      className="px-3.5 py-2 font-medium min-w-[130px] max-w-[130px]"
                       variant="outline"
                       style={{
-                        backgroundColor: "#DCFCE7",
-                        color: "#16A34A",
-                        borderColor: "#16A34A",
+                        backgroundColor: "#FF950099",
+                        color: "#FFFFFF",
+                        borderColor: "#ff9500",
+                        justifyContent: "center",
                       }}
                     >
                       Trending Up
                     </Badge>
                   ),
-                  action: (
-                    <Image
-                      alt="action"
-                      src={IMAGES.HAMBURGER}
-                      height={24}
-                      width={24}
-                      className="cursor-pointer text-center m-auto"
-                    />
-                  ),
+                  // action: (
+                  //   <Image
+                  //     alt="action"
+                  //     src={IMAGES.HAMBURGER}
+                  //     height={24}
+                  //     width={24}
+                  //     className="cursor-pointer text-center m-auto"
+                  //   />
+                  // ),
                 },
                 {
                   name: (
-                    <span className="text-[#1D1D1D] underline cursor-pointer">
+                    <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
                       Alex Johnson
                     </span>
                   ),
@@ -299,7 +348,14 @@ const Main = () => {
                       90
                     </div>
                   ),
-                  status: "Mastered",
+                  status: (
+                    <span
+                      className="font-inter font-medium text-base leading-6 text-[#71717A]"
+                      style={{ fontSize: "14px", lineHeight: "20px" }}
+                    >
+                      Mastered
+                    </span>
+                  ),
                   trend: (
                     <Badge
                       className="px-3.5 py-2 font-medium"
@@ -308,31 +364,42 @@ const Main = () => {
                         backgroundColor: "#FEF3C7",
                         color: "#D97706",
                         borderColor: "#FBBF24",
+                        justifyContent: "center",
                       }}
                     >
                       Needs Attention
                     </Badge>
                   ),
-                  action: (
-                    <Image
-                      alt="action"
-                      src={IMAGES.HAMBURGER}
-                      height={24}
-                      width={24}
-                      className="cursor-pointer text-center m-auto"
-                    />
-                  ),
+                  // action: (
+                  //   <Image
+                  //     alt="action"
+                  //     src={IMAGES.HAMBURGER}
+                  //     height={24}
+                  //     width={24}
+                  //     className="cursor-pointer text-center m-auto"
+                  //   />
+                  // ),
                 },
               ]}
             />
           </div>
-          <div className="topics-wrapper flex w-full gap-6 flex-col lg:flex-row">
-            <div className="w-7/12">
+          <div className="topics-wrapper flex w-full gap-6 flex-col lg:flex-row flex-wrap xl:flex-nowrap">
+            <div className="w-full xl:w-7/12">
               <Table
                 title="Topics"
+                className="min-w-[200px] 2xl:min-w-[700px] xl:min-w-[600px] lg:min-w-[500px]"
                 headers={[
-                  { label: "Topics", key: "topic", className: "max-w-[240px]" },
-                  { label: "Progress", key: "progress" },
+                  {
+                    label: "Topics",
+                    key: "topic",
+                    className:
+                      "flex items-center pl-4 xl:max-w-[200px] 2xl:max-w-[240px]",
+                  },
+                  {
+                    label: "Progress",
+                    key: "progress",
+                    className: "xl:min-w-[200px] 2xl:min-w-[240px]",
+                  },
                 ]}
                 data={[
                   {
@@ -344,7 +411,7 @@ const Main = () => {
                           <div className="w-full bg-gray-200 rounded h-2">
                             <div
                               className="h-2 rounded bg-orange-500"
-                              style={{ width: "72%" }}
+                              style={{ width: "100%" }}
                             ></div>
                           </div>
                           <span className="text-sm font-medium text-gray-800">
@@ -433,7 +500,7 @@ const Main = () => {
                 ]}
               />
             </div>
-            <div className="w-5/12">
+            <div className="w-full xl:w-5/12">
               <AIAssessmentContent
                 theme="ai-blue"
                 title="Al-Generated Insights & Recommendations"

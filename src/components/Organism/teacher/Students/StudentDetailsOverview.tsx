@@ -17,6 +17,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import AlertCard from "@/components/Molecules/AlertCard";
+import { AlertsSection } from "../Dashboard";
 
 const alerts = [
   {
@@ -74,40 +75,7 @@ const StudentDetailsOverview = () => {
 
             <div className="flex items-center gap-3 justify-center">
               {/* Left Arrow */}
-              <Carousel
-                opts={{
-                  slidesToScroll: 1,
-                }}
-                className="w-[90%]"
-              >
-                <CarouselContent className="min-h-fit py-10">
-                  {alerts.map((alert, index) => (
-                    <CarouselItem
-                      key={index}
-                      className="md:basis-1/4 lg:basis-1/4 rounded-xl"
-                    >
-                      <AlertCard
-                        key={`alert_${index}_${alert.title}`}
-                        icon={
-                          <Image
-                            src={alert.icon}
-                            alt="Alert"
-                            width={24}
-                            height={24}
-                          />
-                        }
-                        title={alert.title}
-                        description={alert.description}
-                        color={
-                          alert.color as "SUCCESS" | "WARNING" | "REJECTED"
-                        }
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
+              <AlertsSection />
 
               {/* Cards */}
             </div>

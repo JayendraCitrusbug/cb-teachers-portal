@@ -8,19 +8,25 @@ type CircleIndicatorProps = {
   label: string;
   percent: number;
   color: keyof typeof COLORS;
+  className?: string;
+  strokeWidth?: number;
 };
 
 export function CircleIndicator({
   label,
   percent,
   color,
+  className,
+  strokeWidth,
 }: CircleIndicatorProps) {
   return (
-    <div className="flex flex-col items-center justify-center space-y-1 w-[140px] h-[140px]">
+    <div
+      className={`flex flex-col items-center justify-center space-y-1 w-[140px] h-[140px] ${className}`}
+    >
       <CircularProgressbar
         value={percent}
         text={`${percent}%`}
-        strokeWidth={10}
+        strokeWidth={strokeWidth || 10}
         styles={buildStyles({
           textSize: "28px",
           pathColor: COLORS[color],

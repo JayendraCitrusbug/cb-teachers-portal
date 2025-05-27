@@ -33,6 +33,7 @@ import {
 import IMAGES, { ALERT_ICONS } from "@/assets/images";
 import ActionCard from "@/components/Molecules/actionCard";
 import { AIAssessmentContent } from "@/components/Molecules/ai-assessment/AIAssessmentContent";
+import AlertsSection from "@/components/Molecules/AlertSection";
 
 const alerts = [
   {
@@ -176,49 +177,7 @@ const Students: React.FC = () => {
           </p>
         }
       />
-      <section className="">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-800">Alerts</h2>
-        </div>
-
-        <div className="flex items-center gap-3 justify-center">
-          {/* Left Arrow */}
-          <Carousel
-            opts={{
-              slidesToScroll: 1,
-            }}
-            className="w-[90%]"
-          >
-            <CarouselContent className="min-h-fit py-10">
-              {alerts.map((alert, index) => (
-                <CarouselItem
-                  key={index}
-                  className="md:basis-1/4 lg:basis-1/4 rounded-xl"
-                >
-                  <AlertCard
-                    key={`alert_${index}_${alert.title}`}
-                    icon={
-                      <Image
-                        src={alert.icon}
-                        alt="Alert"
-                        width={24}
-                        height={24}
-                      />
-                    }
-                    title={alert.title}
-                    description={alert.description}
-                    color={alert.color as "SUCCESS" | "WARNING" | "REJECTED"}
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-
-          {/* Cards */}
-        </div>
-      </section>
+      <AlertsSection />
 
       <section className="flex flex-col items-start gap-6 w-full">
         <div className="flex flex-col items-end gap-5 w-full">
