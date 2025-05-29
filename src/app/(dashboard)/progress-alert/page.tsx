@@ -157,8 +157,8 @@ export default function ProgressAlertPage() {
           </div>
         </div>
 
-        <div className="sticky bottom-2 flex flex-col gap-4 bg-white">
-          <div className="mt-6 flex items-center justify-center gap-4">
+        <div className="sticky bottom-0 lg:bottom-2 flex flex-col gap-4 bg-white">
+          <div className="mt-6 flex-col lg:flex-row flex items-center justify-center gap-1 lg:gap-4">
             <Button
               variant="default"
               className="h-10 w-[192px] mt-auto cursor-pointer bg-[#2B2B2B] text-white rounded-[12px]"
