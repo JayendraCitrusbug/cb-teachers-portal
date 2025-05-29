@@ -135,6 +135,7 @@ const Main = () => {
                 title="Class Mastery"
                 data={studentsData}
                 showDropdown
+                chartContainClassName="flex-col"
               />
             </div>
           </div>

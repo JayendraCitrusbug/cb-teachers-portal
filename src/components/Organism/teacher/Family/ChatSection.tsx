@@ -13,6 +13,7 @@ import { ChatProvider, useChatContext } from "@/context/chatContext";
 import { Button } from "@/components/ui/button";
 
 import "./style.css";
+import IMAGES from "@/assets/images";
 
 interface ChatListItemProps {
   avatarUrl: string;
@@ -104,7 +105,7 @@ function Sidebar() {
         </Button>
       </div>
 
-      <div className="overflow-y-auto flex flex-col gap-1 items-start">
+      <div className="chat-messages-container overflow-y-auto flex flex-col gap-1 items-start">
         {chatItems.map((chat) => (
           <div
             key={chat.id}
@@ -172,7 +173,7 @@ function ChatWindow() {
   if (!chat) return null;
 
   return (
-    <div className="border border-[#E4E4E7] rounded-lg w-full max-w-full h-screen relative shadow-sm bg-white">
+    <div className="border border-[#E4E4E7] rounded-lg w-full max-w-full max-h-[calc(100vh-62px)] overflow-y-hidden relative shadow-sm bg-white">
       <div className="bg-white p-4 rounded-lg w-full">
         {/* Header */}
         <div className="flex items-center justify-between pb-4">
@@ -201,14 +202,14 @@ function ChatWindow() {
             </div>
           </div>
 
-          <button className="flex items-center gap-1 border px-3 py-1 rounded-md text-sm hover:bg-gray-100">
-            <MessageCircle size={16} />
+          <button className="cursor-pointer flex items-center gap-1 border px-3 py-1 rounded-md text-sm hover:bg-gray-100">
+            <Image src={IMAGES.TRANSLATE} alt="translate" />
             Translate
           </button>
         </div>
 
         {/* Chat */}
-        <div className="mt-1 py-2 space-y-4 overflow-y-auto overflow-x-hidden chat-window">
+        <div className="mt-1 py-2 space-y-4 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-62px)] chat-window">
           {messagesForSelectedChat.map((msg) => (
             <div
               key={msg.id}
@@ -244,7 +245,7 @@ function ChatWindow() {
 export default function ChatUI() {
   return (
     <ChatProvider>
-      <div className="flex gap-6 w-full h-screen chat-content-wrapper">
+      <div className="flex gap-6 w-full max-h-[calc(100vh-128px)] h-screen chat-content-wrapper">
         <Sidebar />
         <ChatWindow />
       </div>

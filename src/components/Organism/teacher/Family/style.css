@@ -1,7 +1,12 @@
 .chat-sidebar {
-    width: 390px;
-    min-width: 390px;
+  width: 390px;
+  min-width: 390px;
 }
+
+.chat-messages-container::-webkit-scrollbar, .chat-window::-webkit-scrollbar {
+  display: none;
+}
+
 .chat-window {
   max-height: calc(100vh - 150px);
 }

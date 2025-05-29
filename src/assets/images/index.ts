@@ -33,6 +33,8 @@ import PLUS_ICON from "./plus-icon.svg";
 import MIKE_ICON from "./mice-icon.svg";
 import PROFILE_ICON from "./profile-img.svg";
 import LESSON_ICON from "./lesson-icon.svg";
+import TRANSLATE from "./translate.svg";
+import LESSON_PLANNER from "./lesson-planner.svg";
 
 import family from "./sidebar/family.svg";
 import familyActive from "./sidebar/family-active.svg";
@@ -89,6 +91,8 @@ const IMAGES = {
   MIKE_ICON: MIKE_ICON,
   PROFILE_ICON: PROFILE_ICON,
   LESSON_ICON: LESSON_ICON,
+  TRANSLATE: TRANSLATE,
+  LESSON_PLANNER: LESSON_PLANNER,
 };
 
 export default IMAGES;

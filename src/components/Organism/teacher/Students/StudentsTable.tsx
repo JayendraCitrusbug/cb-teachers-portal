@@ -102,19 +102,6 @@ const StudentsTable = () => {
           <h2 className="font-semibold text-zinc-950 text-xl tracking-[-0.40px] leading-5">
             Student List
           </h2>
-          {/* <div className="flex items-center gap-4 flex-wrap">
-            <div className="flex items-center border border-[#E4E4E7] rounded-md h-auto overflow-hidden bg-white justify-center">
-              <AIAssesment />
-            </div>
-            <div className="flex items-center border border-[#E4E4E7] rounded-md w-[102px] h-auto overflow-hidden bg-white justify-center">
-              <button className="flex items-center gap-2 px-2 text-gray-900 hover:text-[#2196F3] focus:outline-none cursor-pointer py-2">
-                Filter icon from lucide-react
-                <Filter color="black" width={16} height={16} />
-                <span className="text-sm">Filters</span>
-              </button>
-            </div>
-          </div> */}
-
         </div>
 
         <div className="w-full">
@@ -122,12 +109,14 @@ const StudentsTable = () => {
             <Table className="w-full rounded-lg">
               <TableHeader>
                 <TableRow className="h-[65px] border-b border-zinc-200">
-                  <TableHead className="h-12 text-center">
+                  <TableHead className="h-12 text-start px-2">
                     Student Name
                   </TableHead>
                   <TableHead className="h-12 text-center">
-                    <div className="flex flex-col items-center">
-                      <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">DNA Structure</span>
+                    <div className="flex flex-col items-start justify-start">
+                      <span className="font-medium text-base leading-6 text-start text-[#3E71C0]">
+                        DNA Structure
+                      </span>
                       <div className="w-[156px] h-2.5 mt-2">
                         <div className="w-[156px] h-2 bg-[#e5e5ea] rounded-lg" />
                         <div className="w-12 h-2.5 -mt-2.5 bg-[#ff3b30] rounded-lg" />
@@ -135,8 +124,10 @@ const StudentsTable = () => {
                     </div>
                   </TableHead>
                   <TableHead className="h-12 text-center">
-                    <div className="flex flex-col items-center">
-                      <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">Cellular Respiration</span>
+                    <div className="flex flex-col items-start justify-start">
+                      <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
+                        Cellular Respiration
+                      </span>
                       <div className="w-[156px] h-2.5 mt-2">
                         <div className="w-[156px] h-2 bg-[#e5e5ea] rounded-lg" />
                         <div className="w-[82px] h-2.5 -mt-2.5 bg-orange-500 rounded-lg" />
@@ -144,18 +135,20 @@ const StudentsTable = () => {
                     </div>
                   </TableHead>
                   <TableHead className="h-12 text-center">
-                    <div className="flex flex-col items-center">
-                      <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">Cell Division</span>
+                    <div className="flex flex-col items-start justify-start">
+                      <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
+                        Cell Division
+                      </span>
                       <div className="w-[156px] h-2.5 mt-2">
                         <div className="w-[156px] h-2 bg-[#e5e5ea] rounded-lg" />
                         <div className="w-[121px] h-2.5 -mt-2.5 bg-[#34c759] rounded-lg" />
                       </div>
                     </div>
                   </TableHead>
-                  <TableHead className="h-12 text-center">
+                  <TableHead className="h-12 text-start">
                     Overall Mastery
                   </TableHead>
-                  <TableHead className="h-12 text-center">Status</TableHead>
+                  <TableHead className="h-12 text-start">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -164,12 +157,15 @@ const StudentsTable = () => {
                     key={index}
                     className="h-[65px] border-b border-zinc-200"
                   >
-                    <TableCell className="h-12 text-center cursor-pointer" onClick={() => router.push(`/students/${student.name}`)}>
-                      <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
+                    <TableCell
+                      className="h-12 text-start cursor-pointer"
+                      onClick={() => router.push(`/students/${student.name}`)}
+                    >
+                      <span className="px-2 font-medium text-base leading-6 text-start text-[#3E71C0]">
                         {student.name}
                       </span>
                     </TableCell>
-                    <TableCell className="h-12 text-center">
+                    <TableCell className="h-12 text-start">
                       <div
                         className="inline-flex w-8 h-8 items-center justify-center rounded text-white"
                         style={{ backgroundColor: student.dnaStructure.color }}
@@ -177,7 +173,7 @@ const StudentsTable = () => {
                         {student.dnaStructure.score}
                       </div>
                     </TableCell>
-                    <TableCell className="h-12 text-center">
+                    <TableCell className="h-12 text-start">
                       <div
                         className="inline-flex w-8 h-8 items-center justify-center rounded text-white"
                         style={{
@@ -187,7 +183,7 @@ const StudentsTable = () => {
                         {student.cellularRespiration.score}
                       </div>
                     </TableCell>
-                    <TableCell className="h-12 text-center">
+                    <TableCell className="h-12 text-start">
                       <div
                         className="inline-flex w-8 h-8 items-center justify-center rounded text-white"
                         style={{ backgroundColor: student.cellDivision.color }}
@@ -195,19 +191,17 @@ const StudentsTable = () => {
                         {student.cellDivision.score}
                       </div>
                     </TableCell>
-                    <TableCell className="h-12 text-center">
+                    <TableCell className="h-12 text-start">
                       <span
                         className={`!text-[${student.overallMastery.color}] font-extrabold text-lg`}
                         style={{
-    
                           color: student.overallMastery.color,
-                      
                         }}
                       >
                         {student.overallMastery.score}
                       </span>
                     </TableCell>
-                    <TableCell className="h-12 text-center">
+                    <TableCell className="h-12 text-start">
                       <Badge
                         className="px-3.5 py-2 min-w-[130px] items-center text-center max-w-[130px] font-medium"
                         variant="outline"

@@ -19,7 +19,7 @@ export const LessonPlanCard = ({
   return (
     <div
       className={cn(
-        "bg-blue-50 rounded-xl p-5 flex flex-row justify-between items-start md:items-center gap-4 shadow-sm border border-blue-100",
+        "bg-blue-50 rounded-xl p-5 flex flex-wrap justify-between items-start md:items-center gap-2 shadow-sm border border-blue-100",
         className
       )}
     >
@@ -35,29 +35,35 @@ export const LessonPlanCard = ({
             Lesson Plan
           </span>
         </div>
-        <ul className="list-disc ml-7 text-gray-700 text-sm font-medium space-y-1">
-          {plans.map((item, idx) => (
-            <li className="text-[#474747]" key={idx}>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-      {/* Right side: Icon & Action */}
-      <div className="flex flex-col items-end h-[123px] justify-between min-h-full min-w-[120px]">
-        <Image
-          width={70}
-          height={70}
-          src={IMAGES.LESSON_PLAN}
-          alt="Lesson Icon"
-        />
-        <button
-          className="font-sans text-xs font-semibold text-[var(--color-primary)] flex items-center gap-1 hover:underline mt-auto focus:outline-none focus:ring-2 focus:ring-blue-500 rounded cursor-pointer"
-          onClick={onViewModify}
-        >
-          VIEW & MODIFY
-          <ArrowRight className="w-4 h-4" color={COLORS.PRIMARY} />
-        </button>
+
+        <div className="flex items-center justify-between relative">
+          <ul className="list-disc ml-7 text-[#474747] text-xs font-medium font-sans">
+            {plans.map((item, idx) => (
+              <li className="text-[#474747]" key={idx}>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <button
+            className="font-sans text-xs font-semibold text-[var(--color-primary)] flex items-center gap-1 hover:underline mt-auto focus:outline-none focus:ring-2 focus:ring-blue-500 rounded cursor-pointer"
+            onClick={onViewModify}
+          >
+            VIEW & MODIFY
+            <ArrowRight className="w-4 h-4" color={COLORS.PRIMARY} />
+          </button>
+
+          <Image
+            width={50}
+            height={50}
+            src={IMAGES.LESSON_ICON}
+            alt="Lesson Icon"
+            className="absolute right-0 top-0"
+            style={{
+              transform: "translateY(-50%)",
+            }}
+          />
+        </div>
       </div>
     </div>
   );

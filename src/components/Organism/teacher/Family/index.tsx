@@ -13,7 +13,7 @@ const MainContent = () => {
   const { slug } = useParams();
   return (
     <>
-      <h1 className="font-semibold text-2xl">
+      <h1 className="font-semibold text-xl">
         {slug === "chat" ? "Messages" : "Compose Message"}
       </h1>
       {slug === "chat" ? <ChatSection /> : <ComposeMessage />}

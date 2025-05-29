@@ -33,6 +33,7 @@ interface PieChartSectionProps {
   data: StudentStatus[];
   className?: string;
   showDropdown?: boolean;
+  chartContainClassName?: string;
 }
 
 const CHART_SIZE = 180;
@@ -43,6 +44,7 @@ export function PieChartSection({
   title = "Total Students",
   data,
   className,
+  chartContainClassName,
   showDropdown = false,
 }: PieChartSectionProps) {
   const total = React.useMemo(
@@ -58,7 +60,7 @@ export function PieChartSection({
         <div className="text-xl font-semibold">{title}</div>
         {showDropdown && <PeriodDropdown />}
       </div>
-      <div className="flex items-center justify-center gap-8">
+      <div className={`flex items-center justify-center gap-8 ${chartContainClassName}`}>
         {/* Donut Chart */}
         <PieChart width={CHART_SIZE} height={CHART_SIZE}>
           <Pie

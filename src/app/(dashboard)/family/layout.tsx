@@ -5,7 +5,6 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <>
       <div className="flex flex-col p-4">
         <h1 className="font-semibold text-2xl">Family</h1>
-        <FamilySection />
       </div>
       {children}
     </>

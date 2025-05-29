@@ -9,7 +9,6 @@ import "./dashboard.css";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <SidebarProvider>
-      
       <div className="flex root-container flex-1 w-screen h-screen">
         <Sidebar />
         <div className="content main-page-content">{children}</div>

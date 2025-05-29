@@ -176,7 +176,7 @@ const LessonTable = () => {
               </span>
             ),
             lessonPlan: (
-              <div className="flex justify-center cursor-pointer">
+              <div className="flex justify-start cursor-pointer">
                 <Image src={IMAGES.LESSON_ICON} alt="lesson" />
               </div>
             ),

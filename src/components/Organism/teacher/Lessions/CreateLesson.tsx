@@ -2,6 +2,8 @@
 import React, { useRef, useState, useEffect } from "react";
 
 import { RotateCw } from "lucide-react";
+import dayjs from "dayjs";
+import { TimePicker } from "antd";
 
 import AIChatInput from "../../../Molecules/AIChatInput";
 
@@ -42,22 +44,41 @@ function LessonPlanCard({
         </ul>
       </div>
       <div className="flex gap-3 justify-end mt-4 flex-wrap">
-        <div className="bg-white border border-[#34C759] rounded-lg px-6 py-2 text-[16px] font-semibold text-[#232323] min-w-[130px] text-center">
-          <DatePicker
-            defaultDate={new Date(date)}
-            buttonProps={{
-              varient: "link",
-              className: "bg-transperant shadow-none"
-            }}
-          />
+        <div className="bg-white border border-[#34C759] flex items-center justify-center rounded-lg px-3 text-[16px] font-semibold text-[#18181B] min-w-[130px] text-center">
+          {onAddToCalendar ? (
+            <DatePicker
+              defaultDate={new Date(date)}
+              buttonProps={{
+                varient: "ghost",
+                className: "bg-transparent shadow-none font-semibold font-sans",
+              }}
+            />
+          ) : (
+            <div className="font-semibold font-sans py-2">
+              {dayjs(date, "DD MMM YYYY").format("MMM D, YYYY")}
+            </div>
+          )}
         </div>
-        <div className="bg-white border border-[#34C759] rounded-lg px-6 py-2 text-[16px] font-semibold text-[#232323] min-w-[110px] text-center">
-          {time}
+
+        <div className="font-sans bg-white border border-[#34C759] rounded-lg px-3 justify-center flex items-center text-[16px] font-semibold text-[#18181B] min-w-[110px] text-center">
+          {onAddToCalendar ? (
+            <TimePicker
+              variant="borderless"
+              suffixIcon={false}
+              className="font-semibold font-sans cursor-pointer"
+              use12Hours
+              format="h:mm A"
+              allowClear={false}
+              defaultValue={dayjs(time, "HH:mm")}
+            />
+          ) : (
+            <div className="font-semibold font-sans">{time}</div>
+          )}
         </div>
         {onAddToCalendar && (
           <button
             onClick={onAddToCalendar}
-            className="bg-[#2B2B2B] text-white rounded-lg px-6 py-2 text-[16px] font-semibold min-w-[180px] hover:bg-[#444] transition"
+            className="cursor-pointer font-sans bg-[#2B2B2B] text-white rounded-lg px-6 py-2 text-[16px] font-semibold min-w-[180px] hover:bg-[#444] transition"
           >
             Add to Calendar List
           </button>
@@ -152,7 +173,7 @@ function LessonPlanHeader({
   }[];
 }) {
   return (
-    <div className="bg-[#DEF6FFD4] border border-[#DEF6FFD4] rounded-xl p-6 max-w-3xl mx-auto mt-3 ">
+    <div className="bg-[#DEF6FFD4] border border-[#DEF6FFD4] rounded-xl p-6 max-w-3xl mt-3 ">
       {/* Header */}
       <div className="flex flex-col gap-1 items-center">
         <div className="text-[var(--primary)] text-xl font-semibold text-center">
@@ -229,12 +250,17 @@ export function LessonPlanSuggestionButtons({
   className?: string;
 }) {
   return (
-    <div className={cn("w-full flex flex-col items-center", className)}>
+    <div
+      className={cn(
+        "w-full flex flex-col items-center",
+        className
+      )}
+    >
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl h-full mb-6">
         {options.map((option, idx) => (
           <button
             key={option}
-            className="bg-[#2B2B2B] text-white text-sm font-medium rounded-2xl px-8 py-3 min-h-[1rem] min-w-fit text-center transition hover:bg-[#019bc1] focus:outline-none"
+            className="bg-[#2B2B2B] text-white text-sm font-medium rounded-2xl px-8 py-3 min-h-[1rem] min-w-fit text-center transition focus:outline-none cursor-pointer"
             style={{
               boxShadow: "0px 4px 16px 0px rgba(3, 182, 221, 0.07)",
               wordBreak: "break-word",
@@ -349,12 +375,12 @@ const mockChatStages = [
                 ],
                 date: "20 May 2025",
                 time: "09:30 AM",
+                onAddToCalendar: () => {},
               },
             ]}
             materials={[
               "Dry Erase Boards & Markers",
               "Place Value Chart (digital & physical)",
-              // ...etc
             ]}
             differentiationDescription="Reading Disabilities: Provide visual models, templates, and worked examples. Use numberless word problems for conceptual understanding."
             differentiation={[
@@ -418,8 +444,8 @@ function AIMessage({
   onRefresh?: () => void;
 }) {
   return (
-    <div className="relative w-[82%] max-w-[730px] mx-auto">
-      <div className="bg-white rounded-2xl px-7 py-5 flex flex-col">
+    <div className="relative w-[82%] max-w-[730px]">
+      <div className="bg-white rounded-2xl py-5 flex flex-col">
         <span className="text-[#162D57] font-medium text-[15px] leading-snug mb-3">
           {title}
         </span>

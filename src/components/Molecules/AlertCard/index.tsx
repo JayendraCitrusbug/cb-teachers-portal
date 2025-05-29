@@ -24,18 +24,18 @@ function AlertCard({
         <div className="flex items-center gap-2 mb-2">
           <div className="w-6 h-6">{icon}</div>
           <h3
-            className={`font-semibold text-lg`}
+            className={`font-semibold text-[16px]`}
             style={{ color: COLORS[color] }}
           >
             {title}
           </h3>
         </div>
-        <p className="text-xs font-semibold text-gray-600 mb-4">
+        <p className="text-xs font-medium text-[#474747CC] mb-4">
           {description}
         </p>
         <Link
           href={hrefLink || "#"}
-          className={`text-xs font-semibold flex items-center self-end gap-1`}
+          className={`text-xs font-sans font-semibold flex items-center self-end gap-1`}
           style={{ color: COLORS[color] }}
         >
           MORE <ArrowRight className="w-3 h-3" />

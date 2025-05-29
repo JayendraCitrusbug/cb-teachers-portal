@@ -4,7 +4,7 @@ import MainContent from "@/components/Organism/teacher/Family";
 
 const page = () => {
   return (
-    <div className="flex flex-col p-4 gap-y-6">
+    <div className="flex flex-col px-4 gap-y-6">
       <MainContent />
     </div>
   );
