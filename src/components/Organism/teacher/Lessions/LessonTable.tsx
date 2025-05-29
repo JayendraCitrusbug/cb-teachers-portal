@@ -48,15 +48,29 @@ const LessonTable = () => {
     },
     {
       id: "2",
-      subject: "Math (Grade 3)",
+      subject: "Biology (Grade 3)",
       lesson: "Addition and Subtraction",
       status: "in-active",
       date: "9:15 May 21",
     },
     {
       id: "3",
-      subject: "English (Grade 3)",
+      subject: "Biology (Grade 3)",
       lesson: "Reading Comprehension",
+      status: "active",
+      date: "9:15 May 21",
+    },
+    {
+      id: "4",
+      subject: "Biology (Grade 3)",
+      lesson: "World War II",
+      status: "in-active",
+      date: "10:45 April 21",
+    },
+    {
+      id: "5",
+      subject: "Biology (Grade 3)",
+      lesson: "Photosynthesis",
       status: "active",
       date: "9:15 May 21",
     },
@@ -133,34 +147,37 @@ const LessonTable = () => {
           ]}
           data={tableData.map((item) => ({
             date: (
-              <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
+              <span className="font-medium text-base leading-6 text-center text-[#3E71C0] cursor-pointer">
                 {item.date}
               </span>
             ),
             subject: (
-              <span className="font-medium text-base leading-6 text-center text-[#71717A] font-inter text-[14px] tracking-[0%]">
+              <span className="font-medium text-base leading-6 text-center text-[#71717A] font-inter text-[14px] tracking-[0%] cursor-pointer">
                 {item.subject}
               </span>
             ),
             status: (
               <div className="flex justify-center">
-                <Switch className="h-[30px] w-[62px]" />
+                <Switch
+                  checked={item.status === "active"}
+                  onCheckedChange={() =>
+                    handleSelectAction(
+                      item.status === "active" ? "in-active" : "active",
+                      item.id
+                    )
+                  }
+                  className="h-[30px] w-[62px] cursor-pointer"
+                />
               </div>
             ),
             lesson: (
-              <span className="font-medium text-base leading-6 text-center text-[#3E71C0]">
+              <span className="font-medium text-base leading-6 text-center text-[#3E71C0] cursor-pointer">
                 {item.lesson}
               </span>
             ),
             lessonPlan: (
-              <div className="flex justify-center">
-                <div className="w-[40px] h-[40px] rounded-md border-2 border-[#0099FF] bg-[#0099FF] relative flex items-center justify-center">
-                  <div className="flex flex-col gap-[3px]">
-                    <div className="w-5 h-[3px] bg-white rounded-sm" />
-                    <div className="w-5 h-[3px] bg-white rounded-sm" />
-                    <div className="w-5 h-[3px] bg-white rounded-sm" />
-                  </div>
-                </div>
+              <div className="flex justify-center cursor-pointer">
+                <Image src={IMAGES.LESSON_ICON} alt="lesson" />
               </div>
             ),
           }))}

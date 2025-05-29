@@ -1,9 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft } from "lucide-react";
 
 import Table from "@/components/Molecules/Table";
+import AIChatInput from "@/components/Molecules/AIChatInput";
 
 import IMAGES from "@/assets/images";
 
@@ -26,11 +28,13 @@ const tableData = [
 ];
 
 export default function ProgressAlertPage() {
+  const [value, setValue] = useState<string>("");
+
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen bg-white text-gray-800 px-4 py-3">
       {/* Header */}
-      <header className="text-black px-4 py-3 flex justify-between items-center">
-        <button className="text-black">&larr;</button>
+      <header className="text-black flex justify-between items-center">
+        <ChevronLeft />
         <h1 className="text-lg font-semibold">Sean Progress Alert</h1>
         <div className="w-5"></div>
       </header>
@@ -80,7 +84,8 @@ export default function ProgressAlertPage() {
           {/* Tool: Lesson Planner */}
           <div className="border border-green-500 bg-green-50 rounded-md p-4">
             <p className="text-sm flex items-center gap-2 text-[#34C759] font-inter font-semibold text-[18px] leading-100% tracking-0% capitalize mb-2">
-              <Image src={IMAGES.TOOL_ICON} alt="Tool Icon" /> <span>Tool: Lesson Planner</span>
+              <Image src={IMAGES.TOOL_ICON} alt="Tool Icon" />{" "}
+              <span>Tool: Lesson Planner</span>
             </p>
             <ul className="text-sm list-disc pl-5 mb-3">
               <li>Make some time with Sean tomorrow to discuss these topics</li>
@@ -96,7 +101,8 @@ export default function ProgressAlertPage() {
           {/* Tool: Homework Generator */}
           <div className="border border-green-500 bg-green-50 rounded-md p-4">
             <p className="text-sm flex items-center gap-2 text-[#34C759] font-inter font-semibold text-[18px] leading-100% tracking-0% capitalize mb-2">
-              <Image src={IMAGES.HOME_WORK_ICON} alt="Tool Icon" /> <span>Tool: Homework Generator </span>
+              <Image src={IMAGES.HOME_WORK_ICON} alt="Tool Icon" />{" "}
+              <span>Tool: Homework Generator </span>
             </p>
             <p className="text-sm mb-3">
               Create a specific homework assignment for Sean for tonight.
@@ -111,7 +117,8 @@ export default function ProgressAlertPage() {
           {/* Tool: Email Parent */}
           <div className="border border-green-500 bg-green-50 rounded-md p-4">
             <p className="text-sm flex items-center gap-2 text-[#34C759] font-inter font-semibold text-[18px] leading-100% tracking-0% capitalize mb-2">
-              <Image src={IMAGES.EMAIL_PARENT_ICON} alt="Tool Icon" /> <span>Tool: Email Parent</span>
+              <Image src={IMAGES.EMAIL_PARENT_ICON} alt="Tool Icon" />{" "}
+              <span>Tool: Email Parent</span>
             </p>
             <div className="text-sm mb-3">
               <p className="font-medium inline">To:</p>
@@ -132,8 +139,9 @@ export default function ProgressAlertPage() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Action Buttons */}
+      <div className="sticky bottom-1 flex flex-col gap-4 bg-white">
         <div className="mt-6 flex items-center justify-center gap-4">
           <button className="bg-gray-300 min-w-[140px] px-4 py-2 text-sm rounded">
             Redo
@@ -142,6 +150,21 @@ export default function ProgressAlertPage() {
             Do All Above
           </button>
         </div>
+        <AIChatInput
+          prefixIcon="AI_GRAY"
+          onChange={({ target: { value } }) => setValue(value)}
+          value={value}
+          placeholder="Chat about this class"
+          onVoiceInput={() => {}}
+          onSend={() => {}}
+          containerStyle={{
+            border: "1px #9F9F9FA8 solid",
+            padding: "8px 24px",
+            alignSelf: "center",
+            width: "100%",
+            background: "#fff",
+          }}
+        />
       </div>
     </div>
   );

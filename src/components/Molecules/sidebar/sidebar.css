@@ -12,6 +12,18 @@
   background-color: white !important;
   color: var(--color-primary) !important;
   border-radius: 8px !important;
+  animation: slideLeftToRight 0.2s forwards;
+}
+
+@keyframes slideLeftToRight {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .bottom-bar-link.active {

@@ -21,8 +21,9 @@ export default function DayPlan() {
   const isMobile = useIsMobile();
   const tabs = [
     {
+      isNightlyReport: true,
       title: (
-        <div className="flex justify-between w-full px-3">
+        <div className="flex justify-between w-full px-3 items-center">
           <Image
             src={
               activeTab !== "nightly-report" ? IMAGES.MOON_GRAY : IMAGES.MOON
@@ -93,9 +94,9 @@ export default function DayPlan() {
       {isMobile ? (
         <div className="block md:hidden">
           <Accordion type="single" collapsible className="w-full flex flex-col gap-3">
-            {tabs.map((item) => (
-              <AccordionItem key={item.value} value={item.value}>
-                <AccordionTrigger className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+            {tabs.filter(tab => !tab.isNightlyReport).map((item) => (
+              <AccordionItem key={item.value} value={item.value} className="shadow-sm">
+                <AccordionTrigger className="flex justify-between items-center p-4 hover:bg-gray-50 transition-colors">
                   <div className="w-full flex items-center gap-2 justify-between">
                     <p className="font-inter text-[#202025] font-medium text-[14px] leading-[100%] tracking-[-0.41px]">
                       {item.accordionTitle}

@@ -1,9 +1,11 @@
 import React from "react";
+import Image from "next/image";
 
-import { Mic, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
+
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import IMAGES from "@/assets/images";
-import Image from "next/image";
 import { COLORS } from "@/constants";
 
 interface AIChatInputProps {
@@ -27,11 +29,13 @@ const AIChatInput: React.FC<AIChatInputProps> = ({
   containerStyle,
   prefixIcon,
 }) => {
+  const isMobile = useIsMobile();
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "space-between",
         border: "1.5px solid #2196F3",
         borderRadius: 8,
         padding: 4,
@@ -67,6 +71,22 @@ const AIChatInput: React.FC<AIChatInputProps> = ({
           if (e.key === "Enter") onSend?.();
         }}
       />
+
+      <button
+        onClick={onVoiceInput}
+        aria-label="Voice input"
+        disabled={disabled}
+        className="w-[26px] h-[26px] relative right-6 md:right-0 justify-center flex items-center p-0 cursor-pointer rounded-full mr-[8px] ml-[2px]"
+      >
+        <Image
+          src={IMAGES.PLUS_ICON}
+          alt="microphone"
+          className="min-w-[28px]"
+          width={14}
+          height={14}
+        />
+      </button>
+
       {onVoiceInput && (
         <button
           onClick={onVoiceInput}
@@ -74,20 +94,25 @@ const AIChatInput: React.FC<AIChatInputProps> = ({
           disabled={disabled}
           className="w-[26px] h-[26px] relative right-6 md:right-0 justify-center flex items-center p-0 cursor-pointer rounded-full mr-[8px] ml-[2px]"
         >
-          <Image src={IMAGES.PLUS_ICON} alt="microphone" className="min-w-[28px]" width={14} height={14}/>
-          {/* <Mic width={14} height={14} color={COLORS.PRIMARY} /> */}
+          <Image
+            src={IMAGES.MIKE_ICON}
+            alt="microphone"
+            className="min-w-[28px]"
+            width={14}
+            height={14}
+          />
         </button>
       )}
-      {onSend && (
+      {/* {onSend && !isMobile && (
         <button
           onClick={onSend}
           aria-label="Send"
           disabled={disabled || !value.trim()}
-          className="w-[30px] relative right-6 md:right-0 h-[30px] justify-center flex items-center p-0 cursor-pointer rounded-[50%] border-0  mr-[20px] md:mr-[10px] ml-[2px]"
+          className="min-w-[28px] min-h-[28px] w-[30px] relative right-6 bg-[var(--color-primary)] md:right-0 h-[30px] justify-center flex items-center p-0 cursor-pointer rounded-[50%] border-0  mr-[20px] md:mr-[10px] ml-[2px]"
         >
-          <Image src={IMAGES.MIKE_ICON} alt="microphone" className="min-w-[28px]" width={14} height={14}/>
+          <ArrowUp color={COLORS.SECONDARY} />
         </button>
-      )}
+      )} */}
     </div>
   );
 };

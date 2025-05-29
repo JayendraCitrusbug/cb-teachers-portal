@@ -17,27 +17,28 @@ const ActionCenter = () => {
   return (
     <div className="flex flex-col items-start w-full">
       <div className="self-center flex items-center gap-4 w-full justify-between sm:justify-center">
-        <Image src={IMAGES.PROFILE_ICON} alt="Logo" className="block sm:hidden"/>
-        <DatePicker />
+      <Image src={IMAGES.PROFILE_ICON} alt="Logo" className="block sm:hidden"/>
+      <DatePicker withNavigation />
       </div>
       {isMobile && <NightlyProgress />}
       <AlertsSection />
       <AIChatInput
-        prefixIcon="AI_GRAY"
-        onChange={({ target: { value } }) => {
-          setValue(value);
-        }}
-        onSend={() => {}}
-        value={value}
-        onVoiceInput={() => {}}
-        containerStyle={{
-          maxWidth: "730px",
-          width: "100%",
-          border: "1px #9F9F9FA8 solid",
-          padding: "8px 24px",
-          alignSelf: "center",
-        }}
-        placeholder="Ask anything..."
+      prefixIcon="AI_GRAY"
+      onChange={({ target: { value } }) => {
+        setValue(value);
+      }}
+      onSend={() => {}}
+      value={value}
+      onVoiceInput={() => {}}
+      containerStyle={{
+        maxWidth: "730px",
+        width: "100%",
+        border: "1px #9F9F9FA8 solid",
+        padding: "8px 24px",
+        alignSelf: "center",
+        boxShadow: "0 5px 5px 0 rgb(0 0 0 / 0.05)",
+      }}
+      placeholder="Ask anything..."
       />
       <DayPlan />
     </div>

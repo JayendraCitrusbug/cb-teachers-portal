@@ -50,7 +50,7 @@ const StudentDetailsStatus = () => {
   return (
     <section className="flex flex-col items-start gap-6 w-full mt-1">
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 w-full">
-        <div className="w-full flex shadow-shadow-sm border border-[#E4E4E7] rounded-lg h-full justify-between">
+        <div className="w-full flex shadow-shadow-sm border border-[#E4E4E7] rounded-lg h-full justify-between md:flex-no-wrap flex-wrap">
           <CardContent className="p-6 flex flex-col gap-5">
             <div className="flex flex-col gap-1 w-full">
               <CardTitle className="text-zinc-950 text-2xl font-semibold tracking-tight leading-6">
@@ -96,8 +96,17 @@ const StudentDetailsStatus = () => {
               },
             }}
             dateKeys={[
-              { key: "timeSpent", label:"Time Spent", color: COLORS.PRIMARY, suffix: "m" },
-              { key: "taskCompleted", label:"Task completed", color: COLORS.AI_BLUE },
+              {
+                key: "timeSpent",
+                label: "Time Spent",
+                color: COLORS.PRIMARY,
+                suffix: "m",
+              },
+              {
+                key: "taskCompleted",
+                label: "Task completed",
+                color: COLORS.AI_BLUE,
+              },
             ]}
             barTops
           />

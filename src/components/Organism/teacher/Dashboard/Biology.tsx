@@ -146,7 +146,7 @@ const Biology = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-2/5">
           <AIAssessmentContent
-            theme={isMobile ? "blue" : "ai-blue"}
+            theme={"ai-blue"}
             content={
               <p className="text-white text-[16px] leading-[22px] font-medium tracking-[0.16px] mt-2">
                 Overall Class mastery on 'Unit 4: Photosynthesis' is 78%. 4
@@ -172,11 +172,11 @@ const Biology = () => {
       {!isMobile ? (
         <Table title="Topics" headers={headers} data={criticalStudents} />
       ) : (
-        <>
+        <div className="flex flex-col gap-3 max-h-[500px] overflow-y-auto">
           {criticalStudents.map((row, i) => (
             <CriticalStudentCard headers={headers} row={row} key={i} />
           ))}
-        </>
+        </div>
       )}
 
       <LessonPlanCard
@@ -186,16 +186,17 @@ const Biology = () => {
           "Focus group with Alex Johnson + Sarah Khan + David AK",
           "Congratulate Timmy on progress",
         ]}
-        className="w-full"
+        className="md:w-[50%] sm:w-full"
       />
       {/* Chat input - full width, sticky on bottom on mobile if desired */}
-      <div className="w-full">
+      <div className="w-full max-w-[730px] self-center">
         <AIChatInput
-          prefixIcon="AI_ROBOT"
+          prefixIcon="AI_GRAY"
           onChange={({ target: { value } }) => setValue(value)}
           value={value}
           placeholder="Chat about this class"
           onVoiceInput={() => {}}
+          onSend={() => {}}
           containerStyle={{
             border: "1px #9F9F9FA8 solid",
             padding: "8px 24px",

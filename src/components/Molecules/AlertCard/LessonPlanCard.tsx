@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import IMAGES from "@/assets/images";
+import { COLORS } from "@/constants";
 
 interface LessonPlanCardProps {
   plans: string[];
@@ -18,7 +19,7 @@ export const LessonPlanCard = ({
   return (
     <div
       className={cn(
-        "bg-blue-50 rounded-xl p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-sm border border-blue-100",
+        "bg-blue-50 rounded-xl p-5 flex flex-row justify-between items-start md:items-center gap-4 shadow-sm border border-blue-100",
         className
       )}
     >
@@ -51,11 +52,11 @@ export const LessonPlanCard = ({
           alt="Lesson Icon"
         />
         <button
-          className="text-xs font-semibold text-blue-700 flex items-center gap-1 hover:underline mt-auto focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+          className="font-sans text-xs font-semibold text-[var(--color-primary)] flex items-center gap-1 hover:underline mt-auto focus:outline-none focus:ring-2 focus:ring-blue-500 rounded cursor-pointer"
           onClick={onViewModify}
         >
           VIEW & MODIFY
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight className="w-4 h-4" color={COLORS.PRIMARY} />
         </button>
       </div>
     </div>

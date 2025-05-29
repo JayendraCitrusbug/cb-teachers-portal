@@ -13,7 +13,6 @@ import { ALERT_ICONS } from "@/assets/images";
 import { useRouter } from "next/navigation";
 
 export default function AlertsSection() {
-  const router = useRouter();
   const isMobile = useIsMobile();
   const cardItem = [
     {
@@ -37,13 +36,7 @@ export default function AlertsSection() {
       color: "REJECTED",
     },
     {
-      icon: ALERT_ICONS.SOCIAL_RED,
-      title: "Family Newsletter",
-      description: "Time to share class highlights with P1: Biology.",
-      color: "SUCCESS",
-    },
-    {
-      icon: ALERT_ICONS.SOCIAL_RED,
+      icon: ALERT_ICONS.MESSAGE_GREEN,
       title: "Family Newsletter",
       description: "Time to share class highlights with P1: Biology.",
       color: "SUCCESS",
@@ -55,7 +48,7 @@ export default function AlertsSection() {
   return (
     <section className="py-4 w-full">
       {isMobile ? (
-        <div className="grid grid-cols-2 gap-4 pt-6 px-1 max-h-[400px] overflow-y-auto">
+        <div className="grid grid-cols-2 gap-4 pt-6 px-1">
           {cardItem.map((alert, index) => {
             const isLast = index === cardItem.length - 1;
             const className = isOdd && isLast ? "col-span-2" : "col-span-1";

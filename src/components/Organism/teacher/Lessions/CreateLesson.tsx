@@ -1,17 +1,13 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 
-import Image from "next/image";
-
-import { User, RotateCw } from "lucide-react";
+import { RotateCw } from "lucide-react";
 
 import AIChatInput from "../../../Molecules/AIChatInput";
 
+import { DatePicker } from "@/components/Molecules/CalendarHeader";
+
 import { cn } from "@/lib/utils";
-
-import { COLORS } from "@/constants";
-
-import IMAGES from "@/assets/images";
 
 function LessonPlanCard({
   title,
@@ -29,7 +25,7 @@ function LessonPlanCard({
   onAddToCalendar?: () => void;
 }) {
   return (
-    <div className="bg-[#71FF9521] border border-[#34C759] rounded-xl p-6 mt-5 flex flex-col ">
+    <div className="bg-[#edfff1] border border-[#34C759] rounded-xl p-6 mt-5 flex flex-col ">
       <div className="text-[#565656] text-lg font-medium text-center">
         {title}
       </div>
@@ -47,17 +43,25 @@ function LessonPlanCard({
       </div>
       <div className="flex gap-3 justify-end mt-4 flex-wrap">
         <div className="bg-white border border-[#34C759] rounded-lg px-6 py-2 text-[16px] font-semibold text-[#232323] min-w-[130px] text-center">
-          {date}
+          <DatePicker
+            defaultDate={new Date(date)}
+            buttonProps={{
+              varient: "link",
+              className: "bg-transperant shadow-none"
+            }}
+          />
         </div>
         <div className="bg-white border border-[#34C759] rounded-lg px-6 py-2 text-[16px] font-semibold text-[#232323] min-w-[110px] text-center">
           {time}
         </div>
-        <button
-          onClick={onAddToCalendar}
-          className="bg-[#232323] text-white rounded-lg px-6 py-2 text-[16px] font-semibold min-w-[180px] hover:bg-[#444] transition"
-        >
-          Add to Calendar List
-        </button>
+        {onAddToCalendar && (
+          <button
+            onClick={onAddToCalendar}
+            className="bg-[#2B2B2B] text-white rounded-lg px-6 py-2 text-[16px] font-semibold min-w-[180px] hover:bg-[#444] transition"
+          >
+            Add to Calendar List
+          </button>
+        )}
       </div>
     </div>
   );
@@ -82,9 +86,7 @@ function LessonPlanMaterialsSection({
   return (
     <div className="rounded-xl mt-5 text-[#222]">
       <div>
-        <span className="font-medium  text-[#18181B]">
-          {materialsTitle}
-        </span>
+        <span className="font-medium  text-[#18181B]">{materialsTitle}</span>
         <ul className="list-disc pl-6 mt-1 text-[16px] ">
           {materials.map((item, i) => (
             <li key={i}>{item}</li>
@@ -95,9 +97,7 @@ function LessonPlanMaterialsSection({
         <span className="font-medium text-[#18181B]">
           {differentiationTitle}
         </span>
-        <div className="mt-1 text-[16px] ">
-          {differentiationDescription}
-        </div>
+        <div className="mt-1 text-[16px] ">{differentiationDescription}</div>
         <ul className="list-disc pl-8 mt-2 space-y-2">
           {differentiation.map((item, idx) => (
             <li key={idx}>
@@ -173,7 +173,7 @@ function LessonPlanHeader({
             group.map((std, i) => (
               <span
                 key={std + i}
-                className="inline-block bg-[var(--primary)] text-white px-3 py-0.5 rounded-md font-semibold text-[15px]"
+                className="inline-block bg-[#00235A] text-white px-3 py-0.5 rounded-md font-semibold text-[15px]"
               >
                 {std}
               </span>
@@ -230,7 +230,7 @@ export function LessonPlanSuggestionButtons({
 }) {
   return (
     <div className={cn("w-full flex flex-col items-center", className)}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl h-full mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl h-full mb-6">
         {options.map((option, idx) => (
           <button
             key={option}
@@ -346,11 +346,9 @@ const mockChatStages = [
                   "Use area models to divide two-digit numbers (e.g., 84 / 4)",
                 activities: [
                   "Fluency: Equation card warm-up with matching models",
-                  // ...other activities
                 ],
                 date: "20 May 2025",
                 time: "09:30 AM",
-                onAddToCalendar: () => alert("Added!"),
               },
             ]}
             materials={[
@@ -393,16 +391,13 @@ function UserMessage({ message, className }: ChatBubbleProps) {
 
   return (
     <div
-      className={cn(
-        "flex gap-4 w-[80%] items-center justify-center",
-        className
-      )}
+      className={cn("flex gap-4 w-[80%] items-center justify-end", className)}
     >
       <div
         className={cn(
           "bg-[#F7F8FA] rounded-lg px-5 py-3 shadow-sm text-[15px] text-[#222] leading-[1.3] font-normal",
           "whitespace-pre-line",
-          "w-full"
+          "w-fit max-w-[800px]"
         )}
       >
         {paragraphs.map((p, idx) => (
@@ -423,7 +418,7 @@ function AIMessage({
   onRefresh?: () => void;
 }) {
   return (
-    <div className="relative w-[82%] mx-auto">
+    <div className="relative w-[82%] max-w-[730px] mx-auto">
       <div className="bg-white rounded-2xl px-7 py-5 flex flex-col">
         <span className="text-[#162D57] font-medium text-[15px] leading-snug mb-3">
           {title}
@@ -439,9 +434,6 @@ function AIMessage({
           <RotateCw className="w-5 h-5 text-[#162D57]" />
         </button>
       )}
-      <div className="absolute -left-12 top-7 flex items-center justify-center w-10 h-10 rounded-full bg-[#162D57] shadow border border-white">
-        <Image src={IMAGES.AI_CHAT_AVATAR} alt="stars" className="" />
-      </div>
     </div>
   );
 }
@@ -462,7 +454,10 @@ export default function LessonPlanChat() {
     if (input.trim()) {
       if (stage < mockChatStages.length - 1) {
         setStage((prev) => prev + 1);
-        setChatMessages((prev) => [...mockChatStages[stage + 1].messages]);
+        setChatMessages((prev) => [
+          ...prev,
+          ...mockChatStages[stage + 1].messages,
+        ]);
       }
       setInput("");
     }
@@ -481,10 +476,10 @@ export default function LessonPlanChat() {
         </h1>
 
         {/* MESSAGES LOOP */}
-        <div className="flex flex-col gap-4 mt-6 mb-8 max-w-5xl max-h-[600px] overflow-y-auto">
+        <div className="flex flex-col gap-4 mt-6 mb-8 max-w-5xl max-h-full overflow-y-auto">
           {chatMessages.map((msg, idx) =>
             msg.type === "bot" ? (
-              <AIMessage key={idx} title={msg.text} onRefresh={() => {}} />
+              <AIMessage key={idx} title={msg.text} />
             ) : msg.type === "final_response" ? (
               <React.Fragment key={idx}>{msg.text}</React.Fragment>
             ) : (
@@ -516,7 +511,7 @@ export default function LessonPlanChat() {
 
         <div className="w-full max-w-[800px] flex items-center gap-2 rounded-lg bg-white shadow-xl mt-auto mb-1 sticky bottom-0">
           <AIChatInput
-            prefixIcon="AI_ROBOT"
+            prefixIcon="AI_GRAY"
             onChange={({ target: { value } }) => setInput(value)}
             onSend={handleSend}
             onVoiceInput={() => {}}

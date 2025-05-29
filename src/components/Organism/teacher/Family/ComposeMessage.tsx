@@ -44,7 +44,7 @@ export default function ComposeMessage() {
           Message
         </label>
         <div className="space-y-2 border border-[#E4E4E7] rounded-md p-3.5 w-full">
-          <Card className="rounded-md bg-[#EEEEEE] p-3 flex items-center gap-3 border-none">
+          <Card className="rounded-md bg-[#EEEEEE] p-3 flex flex-row items-start gap-3 border-none">
             <Image
               src={IMAGES.ANNOUNCEMENT}
               alt="compose"

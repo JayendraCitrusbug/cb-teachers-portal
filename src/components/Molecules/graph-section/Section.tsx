@@ -58,7 +58,7 @@ export function PieChartSection({
         <div className="text-xl font-semibold">{title}</div>
         {showDropdown && <PeriodDropdown />}
       </div>
-      <div className="flex flex-col items-center justify-center gap-8 flex-wrap">
+      <div className="flex items-center justify-center gap-8">
         {/* Donut Chart */}
         <PieChart width={CHART_SIZE} height={CHART_SIZE}>
           <Pie

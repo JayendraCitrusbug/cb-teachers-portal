@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import React from "react";
 import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts";
 
 import {
@@ -9,7 +9,6 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import {
   ChartConfig,
@@ -17,7 +16,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import React from "react";
+
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const chartConfig = {
   desktop: {
@@ -56,6 +56,7 @@ export const BarChartComponent: React.FC<BarChartProps> = ({
   dateKeys,
   barTops,
 }) => {
+  const isMobile = useIsMobile();
   return (
     <Card className={`${className} h-full w-full relative py-3`}>
       <CardHeader>
@@ -84,7 +85,7 @@ export const BarChartComponent: React.FC<BarChartProps> = ({
                 radius={[3, 3, 3, 3]}
                 {...(key.barConfig || {})}
               >
-                {barTops && (
+                {barTops && !isMobile && (
                   <LabelList
                     position="top"
                     className="fill-foreground font-sans text-xs font-medium"

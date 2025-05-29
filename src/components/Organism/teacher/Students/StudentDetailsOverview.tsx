@@ -69,10 +69,6 @@ const StudentDetailsOverview = () => {
       <section className="flex flex-col items-start gap-6 w-full">
         <div className="flex flex-col items-start gap-5 w-full">
           <section className="">
-            <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-800">Alerts</h2>
-            </div>
-
             <div className="flex items-center gap-3 justify-center">
               {/* Left Arrow */}
               <AlertsSection />

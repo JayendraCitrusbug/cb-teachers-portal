@@ -26,7 +26,9 @@ const StudentDetailsHeader: React.FC<StudentDetailsHeaderProps> = ({
       <div className="flex flex-col md:flex-row gap-2 w-full items-center justify-between">
         <Tabs
           value={activeTab}
-          onValueChange={(value: typeof activeTab) => setActiveTab(value)}
+          onValueChange={(value: string) =>
+            setActiveTab(value as typeof activeTab)
+          }
           className="max-w-[555px] w-full"
         >
           <TabsList className="justify-between bg-[#F4F4F5] w-full max-w-[555px] h-[44px] rounded-[6px]">

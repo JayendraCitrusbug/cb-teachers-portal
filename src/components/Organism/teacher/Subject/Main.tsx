@@ -72,7 +72,7 @@ const Main = () => {
               className="h-10 mt-auto cursor-pointer border border-[#00235A] bg-[#00235A] text-white"
             >
               <MoveLeft />
-              Back to Dashboard
+              Back to Students
             </Button>
           </div>
           <div className="subject-detail-wrapper flex justify-between gap-6 w-full flex-col lg:flex-row">

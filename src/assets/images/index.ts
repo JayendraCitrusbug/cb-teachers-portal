@@ -32,6 +32,7 @@ import AI_GRAY from "./ai-gray.svg";
 import PLUS_ICON from "./plus-icon.svg";
 import MIKE_ICON from "./mice-icon.svg";
 import PROFILE_ICON from "./profile-img.svg";
+import LESSON_ICON from "./lesson-icon.svg";
 
 import family from "./sidebar/family.svg";
 import familyActive from "./sidebar/family-active.svg";
@@ -47,6 +48,7 @@ import studentsActive from "./sidebar/student-active.svg";
 import ALERT_RED from "./card/alert-red.svg";
 import MASTER_YELLOW from "./card/master-yellow.svg";
 import SOCIAL_RED from "./card/social-red.svg";
+import MESSAGE_GREEN from "./card/message-green.svg";
 
 export const CHAT_IMAGES = [
   IMG_118900685fa81a0d1a2b5cac1bdfc8e1c18df6e1.src,
@@ -86,6 +88,7 @@ const IMAGES = {
   PLUS_ICON: PLUS_ICON,
   MIKE_ICON: MIKE_ICON,
   PROFILE_ICON: PROFILE_ICON,
+  LESSON_ICON: LESSON_ICON,
 };
 
 export default IMAGES;
@@ -107,4 +110,5 @@ export const ALERT_ICONS = {
   ALERT_RED: ALERT_RED,
   MASTER_YELLOW: MASTER_YELLOW,
   SOCIAL_RED: SOCIAL_RED,
+  MESSAGE_GREEN: MESSAGE_GREEN,
 };
