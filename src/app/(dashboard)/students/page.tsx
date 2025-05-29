@@ -82,82 +82,80 @@ const Students: React.FC = () => {
       </header>
 
       <div className="flex flex-col md:flex-row items-start justify-between gap-6 relative self-stretch w-full">
-        <div className="flex flex-col md:flex-row items-start justify-start gap-6 relative max-w-full min-w-[800px]">
-          <div className="flex flex-col w-full items-start gap-3">
-            <label className="font-semibold text-zinc-900 text-xl leading-5">
-              Class
-            </label>
+        <div className="flex flex-col w-full items-start gap-3">
+          <label className="font-semibold text-zinc-900 text-xl leading-5">
+            Class
+          </label>
 
-            <Select>
-              <SelectTrigger className="w-full bg-white focus:offset-0 outline-0 border border-[#ccc] shadow-none focus:ring-0 cursor-pointer">
-                <SelectValue placeholder="Select Class" />
-              </SelectTrigger>
-              <SelectContent
-                style={{ background: "white" }}
-                className="shadow-sm"
+          <Select>
+            <SelectTrigger className="w-full bg-white focus:offset-0 outline-0 border border-[#ccc] shadow-none focus:ring-0 cursor-pointer">
+              <SelectValue placeholder="Select Class" />
+            </SelectTrigger>
+            <SelectContent
+              style={{ background: "white" }}
+              className="shadow-sm"
+            >
+              <SelectItem
+                value="class1"
+                className="cursor-pointer font-regular"
               >
-                <SelectItem
-                  value="class1"
-                  className="cursor-pointer font-regular"
-                >
-                  Class 1
-                </SelectItem>
-                <SelectItem
-                  value="class2"
-                  className="cursor-pointer font-regular"
-                >
-                  Class 2
-                </SelectItem>
-                <SelectItem
-                  value="class3"
-                  className="cursor-pointer font-regular"
-                >
-                  Class 3
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="flex flex-col w-full items-start gap-3">
-            <label className="font-semibold text-zinc-900 text-xl leading-5">
-              Students
-            </label>
-
-            <Select>
-              <SelectTrigger className="w-full bg-white focus:offset-0 outline-0 border border-[#ccc] shadow-none focus:ring-0 cursor-pointer">
-                <SelectValue placeholder="Select Student" />
-              </SelectTrigger>
-              <SelectContent
-                style={{ background: "white" }}
-                className="shadow-sm"
+                Class 1
+              </SelectItem>
+              <SelectItem
+                value="class2"
+                className="cursor-pointer font-regular"
               >
-                <SelectItem
-                  value="student1"
-                  className="cursor-pointer font-regular"
-                >
-                  Alex Johnson
-                </SelectItem>
-                <SelectItem
-                  value="student2"
-                  className="cursor-pointer font-regular"
-                >
-                  Sarah Khan
-                </SelectItem>
-                <SelectItem
-                  value="student3"
-                  className="cursor-pointer font-regular"
-                >
-                  David SK
-                </SelectItem>
-                <SelectItem
-                  value="student4"
-                  className="cursor-pointer font-regular"
-                >
-                  Jhon Michal
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+                Class 2
+              </SelectItem>
+              <SelectItem
+                value="class3"
+                className="cursor-pointer font-regular"
+              >
+                Class 3
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex flex-col w-full items-start gap-3">
+          <label className="font-semibold text-zinc-900 text-xl leading-5">
+            Students
+          </label>
+
+          <Select>
+            <SelectTrigger className="w-full bg-white focus:offset-0 outline-0 border border-[#ccc] shadow-none focus:ring-0 cursor-pointer">
+              <SelectValue placeholder="Select Student" />
+            </SelectTrigger>
+            <SelectContent
+              style={{ background: "white" }}
+              className="shadow-sm"
+            >
+              <SelectItem
+                value="student1"
+                className="cursor-pointer font-regular"
+              >
+                Alex Johnson
+              </SelectItem>
+              <SelectItem
+                value="student2"
+                className="cursor-pointer font-regular"
+              >
+                Sarah Khan
+              </SelectItem>
+              <SelectItem
+                value="student3"
+                className="cursor-pointer font-regular"
+              >
+                David SK
+              </SelectItem>
+              <SelectItem
+                value="student4"
+                className="cursor-pointer font-regular"
+              >
+                Jhon Michal
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <Button

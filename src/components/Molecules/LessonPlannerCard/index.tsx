@@ -17,7 +17,7 @@ const LessonPlanner: React.FC<LessonPlannerProps> = ({
   action,
 }) => (
   <div className="border border-green-500 bg-green-50 rounded-lg p-4 flex flex-col gap-5">
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center flex-wrap">
       <p className="text-sm flex items-center gap-2 text-[#34C759] font-inter font-semibold text-[18px] leading-100% tracking-0% capitalize mb-2">
         {icon}
         <span className="text-[var(--color-success)] font-semibold text-xl">
